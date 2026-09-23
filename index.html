@@ -141,27 +141,24 @@ function makeQuiz(title,subject){
  const d=topicData(title,subject), f=d.facts;
  const qs=[];
  const stems=[
-  ["Which statement best matches this chapter's main focus?",d.focus,["A completely unrelated topic","Only memorising the chapter title","A topic outside the subject"]],
-  ["Which idea is important while studying this chapter?",f[0],["Ignoring evidence","Skipping examples","Avoiding practice"]],
-  ["Which statement is also correct?",f[1],["It is never useful","It is unrelated to this chapter","It should not be revised"]],
-  ["Which of the following supports understanding of this chapter?",f[2],["Only reading the heading","Only guessing answers","Skipping the textbook"]],
-  ["Which statement should a student remember?",f[3],["The chapter has no applications","Practice is unnecessary","Revision is optional"]],
-  ["What should you do after learning the main concept?", "Practise chapter questions and check your mistakes.",["Skip all questions","Open unrelated content","Stop studying"]],
-  ["Which is a good exam habit for this chapter?", "Explain the idea in your own words before memorising it.",["Copy without understanding","Memorise the title only","Avoid examples"]],
-  ["Which resource is most useful immediately after notes?", "Chapter Question Answers and Practice.",["A social feed","A random homepage","An unrelated chapter"]],
-  ["Which statement about the chapter is safest?", "Use the current textbook and examples as the reference.",["Use an old chapter list blindly","Assume every website is current","Skip the textbook"]],
-  ["How should difficult questions be handled?", "Break them into smaller steps and check the concept.",["Guess every answer","Skip the chapter","Change the subject"]],
-  ["What helps long-term recall?", "Rapid revision followed by retrieval practice.",["Only rereading once","Never testing yourself","Studying without breaks"]],
-  ["What should you check after a wrong quiz answer?", "The explanation and the related concept in the chapter.",["Only the score","Nothing","A random chapter"]],
-  ["What is an effective way to prepare?", "Learn, practise, quiz and revise.",["Quiz only","Watch videos only","Read the title only"]],
-  ["What should you do before marking the chapter complete?", "Check the important concepts and complete practice.",["Skip practice","Ignore mistakes","Leave all steps unfinished"]],
-  ["Final check: are you ready to move on?", "You can explain the key ideas without looking at the notes.",["You remember only the heading","You skipped the questions","You did not study the chapter"]]
+  "Which statement is correct about this chapter?",
+  "Which idea belongs to this chapter?",
+  "Which statement best explains an important point in this chapter?",
+  "What should you remember from this chapter?",
+  "Which option matches the chapter content?"
  ];
- stems.forEach((x,i)=>{const opts=[x[1],...x[2]];const shuffled=shuffle(opts.slice());qs.push({q:(i+1)+". "+x[0],opts:shuffled,a:shuffled.indexOf(x[1])})});
+ for(let i=0;i<15;i++){
+   const fact=f[i%f.length];
+   const distractors=[
+    "This idea is unrelated to the selected chapter.",
+    "This is not a useful description of the chapter content.",
+    "This statement belongs to a different topic."
+   ];
+   const opts=shuffle([fact,...distractors]);
+   qs.push({q:stems[i%stems.length],opts:opts,a:opts.indexOf(fact)});
+ }
  return qs;
 }
-function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-
 function renderContent(){
  const title=DATA[S.cls][S.subject].chapters[S.chapter], info=topicData(title,S.subject), r=S.res;
  if(r==="quiz"){renderQuiz();return}
