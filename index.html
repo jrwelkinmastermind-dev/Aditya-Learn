@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aditya Learns | Study. Don't Scroll.</title>
+<title>Aditya Learns | Study. Don't Scroll. | Build 2026-09-23</title>
 <style>
 :root{--p:#6855e8;--p2:#a13fb1;--pink:#e83f93;--ink:#142033;--muted:#687386;--bg:#f5f7fb;--card:#fff;--line:#e5e8f0;--green:#159b5a}
 *{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg)}button,input{font:inherit}button{cursor:pointer}
@@ -22,7 +22,7 @@ footer{margin-top:50px;background:#0a0f1a;color:#fff;text-align:center;padding:3
 <body>
 <nav><div class="logo">✨ ADITYA <span>LEARNS</span></div><div><button class="navbtn" onclick="goHome()">Classes</button><button class="navbtn" onclick="document.getElementById('portal').scrollIntoView()">Learning</button></div></nav>
 
-<section class="hero"><div class="badge">🎓 NCERT • Session 2026–27</div><h1>ADITYA LEARNS</h1><p>Study. Don't Scroll. Choose your class, open a chapter, learn the concept, practise, take a 15-question quiz and revise.</p></section>
+<section class="hero"><div class="badge">🎓 NCERT • Session 2026–27 • BUILD 23 SEP 2026</div><h1>ADITYA LEARNS</h1><p>Study. Don't Scroll. Choose your class, open a chapter, learn the concept, practise, take a 15-question quiz and revise.</p></section>
 
 <section class="wrap" id="home">
 <div class="title"><h2>📚 What are you studying today?</h2><p>Pick your class. Your subjects and chapters are loaded separately for each class.</p></div>
@@ -159,7 +159,7 @@ function makeQuiz(title,subject){
  }
  return qs;
 }
-function renderContent(){
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}\n\nfunction renderContent(){
  const title=DATA[S.cls][S.subject].chapters[S.chapter], info=topicData(title,S.subject), r=S.res;
  if(r==="quiz"){renderQuiz();return}
  let html="";
