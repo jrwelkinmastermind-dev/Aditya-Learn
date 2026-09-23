@@ -3,1155 +3,344 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Aditya Learns | Smart Learning</title>
-
+<title>Aditya Learns — Class 6 • 2026–27</title>
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f6f7fb;
-    color:#172033;
-    line-height:1.6;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:linear-gradient(90deg,#6654e8,#a63db1);
-    color:white;
-    box-shadow:0 4px 20px rgba(0,0,0,.12);
-}
-
-.navbar{
-    max-width:1200px;
-    margin:auto;
-    padding:18px 25px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.logo{
-    font-size:27px;
-    font-weight:800;
-    letter-spacing:.5px;
-}
-
-.logo span{
-    color:#ffe34d;
-}
-
-.nav-links{
-    display:flex;
-    gap:30px;
-}
-
-.nav-links a{
-    color:white;
-    text-decoration:none;
-    font-weight:700;
-    transition:.2s;
-}
-
-.nav-links a:hover{
-    color:#ffe34d;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:560px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:80px 20px;
-    background:
-    radial-gradient(circle at 10% 20%,rgba(255,255,255,.8),transparent 30%),
-    linear-gradient(135deg,#f2edff,#eefaff);
-}
-
-.hero-content{
-    max-width:900px;
-}
-
-.badge{
-    display:inline-block;
-    background:white;
-    padding:12px 24px;
-    border-radius:50px;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-    color:#6654e8;
-    font-weight:700;
-    margin-bottom:30px;
-}
-
-.hero h1{
-    font-size:76px;
-    line-height:1;
-    margin-bottom:25px;
-    background:linear-gradient(90deg,#6456e8,#e13c9c);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
-
-.hero p{
-    font-size:20px;
-    color:#59657b;
-    max-width:760px;
-    margin:auto;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:35px;
-    padding:16px 32px;
-    border-radius:40px;
-    background:#6654e8;
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:700;
-    box-shadow:0 12px 30px rgba(102,84,232,.3);
-    transition:.25s;
-    border:none;
-    cursor:pointer;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 16px 35px rgba(102,84,232,.4);
-}
-
-/* =========================
-   GENERAL SECTION
-========================= */
-
-.section{
-    padding:80px 20px;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:45px;
-}
-
-.section-title h2{
-    font-size:42px;
-    margin-bottom:10px;
-}
-
-.section-title p{
-    color:#68738a;
-    font-size:17px;
-}
-
-/* =========================
-   CLASS CARDS
-========================= */
-
-.classes{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:24px;
-}
-
-.class-card{
-    background:white;
-    padding:38px 20px;
-    text-align:center;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    cursor:pointer;
-    transition:.25s;
-    border:2px solid transparent;
-}
-
-.class-card:hover{
-    transform:translateY(-8px);
-    border-color:#8a6ff0;
-    box-shadow:0 18px 40px rgba(0,0,0,.12);
-}
-
-.class-icon{
-    font-size:55px;
-    margin-bottom:12px;
-}
-
-.class-card h3{
-    font-size:25px;
-}
-
-.class-card p{
-    color:#7b8497;
-}
-
-/* =========================
-   STUDY SECTION
-========================= */
-
-.study-section{
-    background:#101827;
-    color:white;
-}
-
-.study-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.study-card{
-    background:#202c3e;
-    border:1px solid #344258;
-    border-radius:22px;
-    padding:30px;
-    transition:.25s;
-}
-
-.study-card:hover{
-    transform:translateY(-6px);
-    background:#26344a;
-}
-
-.study-icon{
-    font-size:42px;
-    margin-bottom:15px;
-}
-
-.study-card h3{
-    font-size:22px;
-    margin-bottom:10px;
-}
-
-.study-card p{
-    color:#c1c9d7;
-}
-
-.study-card button{
-    margin-top:20px;
-    padding:10px 18px;
-    border-radius:25px;
-    border:none;
-    background:#6654e8;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-/* =========================
-   SUBJECTS
-========================= */
-
-.subject-section{
-    background:white;
-}
-
-.subjects{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.subject{
-    padding:25px;
-    border-radius:20px;
-    background:#f7f8fc;
-    border:1px solid #e5e8ef;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.subject:hover{
-    transform:translateY(-5px);
-    border-color:#765eea;
-}
-
-.subject h3{
-    margin-bottom:5px;
-}
-
-.subject p{
-    color:#70798b;
-}
-
-/* =========================
-   CONTENT PANEL
-========================= */
-
-.content-area{
-    max-width:1000px;
-    margin:50px auto 0;
-    display:none;
-}
-
-.content-box{
-    background:white;
-    border-radius:25px;
-    padding:35px;
-    box-shadow:0 10px 35px rgba(0,0,0,.08);
-}
-
-.content-box h3{
-    color:#6654e8;
-    margin-bottom:15px;
-}
-
-.content-box ul{
-    margin-left:22px;
-}
-
-.content-box li{
-    margin-bottom:8px;
-}
-
-/* =========================
-   QUIZ
-========================= */
-
-.quiz-box{
-    margin-top:25px;
-}
-
-.question{
-    font-size:21px;
-    font-weight:700;
-    margin-bottom:20px;
-}
-
-.options{
-    display:grid;
-    gap:12px;
-}
-
-.option{
-    padding:14px 18px;
-    border:2px solid #e1e4ec;
-    border-radius:12px;
-    cursor:pointer;
-    background:white;
-}
-
-.option:hover{
-    border-color:#6654e8;
-}
-
-.option.correct{
-    background:#dff7e8;
-    border-color:#2ca65a;
-}
-
-.option.wrong{
-    background:#ffe1e1;
-    border-color:#dc4d4d;
-}
-
-/* =========================
-   CTA
-========================= */
-
-.cta{
-    text-align:center;
-    padding:100px 20px;
-    background:linear-gradient(135deg,#f5f1ff,#eefaff);
-}
-
-.cta h2{
-    font-size:42px;
-    margin-bottom:15px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#070b13;
-    color:white;
-    text-align:center;
-    padding:40px 20px;
-}
-
-footer h3{
-    font-size:22px;
-}
-
-footer p{
-    color:#aeb6c6;
-    margin-top:8px;
-}
-
-/* =========================
-   MODAL
-========================= */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:2000;
-    padding:20px;
-}
-
-.modal.active{
-    display:flex;
-}
-
-.modal-box{
-    background:white;
-    width:min(700px,100%);
-    max-height:85vh;
-    overflow:auto;
-    border-radius:25px;
-    padding:35px;
-    position:relative;
-}
-
-.close{
-    position:absolute;
-    right:20px;
-    top:15px;
-    font-size:28px;
-    cursor:pointer;
-    color:#555;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:900px){
-
-    .hero h1{
-        font-size:55px;
-    }
-
-    .classes{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .study-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .subjects{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:600px){
-
-    .navbar{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    .nav-links{
-        gap:15px;
-        font-size:14px;
-    }
-
-    .hero{
-        min-height:500px;
-        padding:60px 20px;
-    }
-
-    .hero h1{
-        font-size:44px;
-    }
-
-    .hero p{
-        font-size:17px;
-    }
-
-    .section-title h2{
-        font-size:32px;
-    }
-
-    .classes,
-    .study-grid,
-    .subjects{
-        grid-template-columns:1fr;
-    }
-
-    .content-box{
-        padding:25px;
-    }
-}
-
+:root{--p:#6957e8;--p2:#a33fb0;--pink:#e94491;--ink:#152033;--muted:#687386;--bg:#f5f7fc;--white:#fff;--line:#e7eaf1;--green:#19a463}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+nav{position:sticky;top:0;z-index:10;background:linear-gradient(105deg,var(--p),var(--p2));color:#fff;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 5px 22px #0002}
+.logo{font-size:24px;font-weight:900}.logo span{color:#ffd83d}nav button{border:0;background:transparent;color:#fff;font-weight:800;margin-left:16px;cursor:pointer}
+.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#eeeaff,#eafaff)}.badge{display:inline-block;padding:9px 16px;border-radius:30px;background:#fff;color:var(--p);font-weight:800;box-shadow:0 5px 20px #0001}.hero h1{font-size:clamp(42px,8vw,76px);margin:18px 0;background:linear-gradient(90deg,var(--p),var(--pink));-webkit-background-clip:text;color:transparent}.hero p{max-width:850px;margin:auto;color:#596477;font-size:18px;line-height:1.6}.hero .cta{margin-top:25px;border:0;background:var(--ink);color:#fff;padding:14px 23px;border-radius:12px;font-weight:900;cursor:pointer}
+.wrap{max-width:1180px;margin:auto;padding:42px 20px}.title{text-align:center;margin-bottom:28px}.title h2{font-size:34px;margin:5px 0 8px}.title p{color:var(--muted)}
+.books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.book-card{border:0;background:#fff;border-radius:21px;padding:24px;box-shadow:0 8px 28px #0000000d;text-align:left;transition:.2s;cursor:pointer}.book-card:hover,.chapter-card:hover,.resource-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px #0002}.book-card .icon{font-size:40px}.book-card h3,.chapter-card h3,.resource-card h3{margin:9px 0 6px}.book-card p,.chapter-card p,.resource-card p{margin:0;color:var(--muted);line-height:1.5}.tag{display:inline-block;margin-top:14px;background:#f0edff;color:var(--p);padding:6px 10px;border-radius:20px;font-size:12px;font-weight:800}
+.section-hidden{display:none}.back{border:0;background:#e9edf5;padding:10px 15px;border-radius:10px;font-weight:800;margin-bottom:18px;cursor:pointer}.crumb{color:var(--p);font-weight:900;margin-bottom:7px}
+.chapter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.chapter-card{border:0;background:#fff;border-radius:21px;padding:24px;box-shadow:0 8px 28px #0000000d;text-align:left;transition:.2s;cursor:pointer}.chapter-card small{color:var(--p);font-weight:900}
+.resource-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.resource-card{border:2px solid var(--line);background:#fff;border-radius:21px;padding:22px;text-align:left;box-shadow:0 8px 28px #0000000d;cursor:pointer}.resource-card.active{border-color:var(--p);background:#f8f6ff}.ri{font-size:28px}
+.content{background:#fff;border-radius:22px;padding:30px;box-shadow:0 8px 28px #0001;min-height:300px}.content h2{color:var(--p);margin-top:0}.note{padding:15px;margin:11px 0;background:#f8f6ff;border-left:5px solid var(--p);border-radius:9px;line-height:1.6}.video{display:inline-block;background:#e44069;color:#fff;text-decoration:none;padding:13px 18px;border-radius:11px;font-weight:900}
+.option{display:block;width:100%;padding:13px;margin:8px 0;background:#fff;border:2px solid var(--line);border-radius:10px;text-align:left;cursor:pointer}.option:disabled{cursor:default}.option.correct{background:#dcf8e9;border-color:var(--green)}.option.wrong{background:#ffe1e1;border-color:#d44}.score{font-size:20px;font-weight:900;margin-top:18px}
+footer{margin-top:40px;background:#0a0f19;color:#fff;text-align:center;padding:35px}
+@media(max-width:900px){.books-grid,.chapter-grid{grid-template-columns:repeat(2,1fr)}.resource-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){nav{flex-direction:column;gap:8px}.books-grid,.chapter-grid,.resource-grid{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-<div class="navbar">
-
-<div class="logo">
-✨ ADITYA <span>LEARNS</span>
-</div>
-
-<nav class="nav-links">
-<a href="#classes">Classes</a>
-<a href="#resources">Resources</a>
-<a href="#subjects">Subjects</a>
-<a href="#about">About</a>
+<nav>
+  <div class="logo">✨ ADITYA <span>LEARNS</span></div>
+  <div>
+    <button type="button" onclick="goHome()">Home</button>
+    <button type="button" onclick="showElement('booksSection')">Subjects</button>
+  </div>
 </nav>
 
-</div>
-
-</header>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero">
-
-<div class="hero-content">
-
-<div class="badge">
-🎓 Smart Study • Simple Learning
-</div>
-
-<h1>ADITYA LEARNS</h1>
-
-<p>
-Your personal learning space for Classes 6–9.
-Study NCERT concepts, revise quickly, practice questions
-and test your knowledge — all in one place.
-</p>
-
-<a href="#classes" class="btn">
-🚀 Get Started
-</a>
-
-</div>
-
+  <div class="badge">🎓 Class 6 • Session 2026–27</div>
+  <h1>Study. Don't Scroll.</h1>
+  <p>A distraction-free study space built around the Class 6 curriculum. Choose a textbook area, chapter and follow one guided study path.</p>
+  <button type="button" class="cta" onclick="showElement('booksSection')">🚀 Start Studying</button>
 </section>
 
-
-<!-- =========================
-     CLASSES
-========================= -->
-
-<section class="section" id="classes">
-
-<div class="section-title">
-
-<h2>📚 Choose Your Class</h2>
-
-<p>
-Select your class and start learning.
-</p>
-
-</div>
-
-<div class="classes">
-
-<div class="class-card" onclick="selectClass(6)">
-<div class="class-icon">🌱</div>
-<h3>Class 6</h3>
-<p>Foundation Learning</p>
-</div>
-
-<div class="class-card" onclick="selectClass(7)">
-<div class="class-icon">🚀</div>
-<h3>Class 7</h3>
-<p>Build Your Concepts</p>
-</div>
-
-<div class="class-card" onclick="selectClass(8)">
-<div class="class-icon">🔥</div>
-<h3>Class 8</h3>
-<p>Strengthen Your Skills</p>
-</div>
-
-<div class="class-card" onclick="selectClass(9)">
-<div class="class-icon">🎯</div>
-<h3>Class 9</h3>
-<p>Prepare for Excellence</p>
-</div>
-
-</div>
-
+<section class="wrap" id="booksSection">
+  <div class="title">
+    <h2>📚 Class 6 — Choose Your Book</h2>
+    <p>Start with a curricular area, then open a chapter and its study tools.</p>
+  </div>
+  <div class="books-grid" id="bookGrid"></div>
 </section>
 
-
-<!-- =========================
-     STUDY YOUR WAY
-========================= -->
-
-<section class="section study-section" id="resources">
-
-<div class="section-title">
-
-<h2>🧠 Study Your Way</h2>
-
-<p>
-Everything you need for smarter revision.
-</p>
-
-</div>
-
-<div class="study-grid">
-
-<div class="study-card">
-
-<div class="study-icon">📖</div>
-
-<h3>Notes</h3>
-
-<p>
-Easy-to-understand chapter notes and
-important concepts.
-</p>
-
-<button onclick="openResource('Notes')">
-Open Notes
-</button>
-
-</div>
-
-
-<div class="study-card">
-
-<div class="study-icon">📝</div>
-
-<h3>Question Answers</h3>
-
-<p>
-Important NCERT questions with
-clear answers.
-</p>
-
-<button onclick="openResource('Question Answers')">
-Open Questions
-</button>
-
-</div>
-
-
-<div class="study-card">
-
-<div class="study-icon">🧠</div>
-
-<h3>Quiz</h3>
-
-<p>
-Test yourself with interactive quizzes.
-</p>
-
-<button onclick="openQuiz()">
-Start Quiz
-</button>
-
-</div>
-
-
-<div class="study-card">
-
-<div class="study-icon">⚡</div>
-
-<h3>One Shot</h3>
-
-<p>
-Complete chapter revision in a short
-and focused format.
-</p>
-
-<button onclick="openResource('One Shot')">
-Start One Shot
-</button>
-
-</div>
-
-
-<div class="study-card">
-
-<div class="study-icon">🔄</div>
-
-<h3>Rapid Revision</h3>
-
-<p>
-Quick revision before tests and
-examinations.
-</p>
-
-<button onclick="openResource('Rapid Revision')">
-Revise Now
-</button>
-
-</div>
-
-
-<div class="study-card">
-
-<div class="study-icon">🎯</div>
-
-<h3>NCERT Practice</h3>
-
-<p>
-Practice important NCERT-based
-questions.
-</p>
-
-<button onclick="openResource('NCERT Practice')">
-Practice
-</button>
-
-</div>
-
-</div>
-
+<section class="wrap section-hidden" id="chaptersSection">
+  <button type="button" class="back" onclick="backBooks()">← Back to Books</button>
+  <div class="title">
+    <div class="crumb" id="bookCrumb"></div>
+    <h2 id="bookTitle"></h2>
+    <p>Select a chapter/theme to start.</p>
+  </div>
+  <div class="chapter-grid" id="chapterGrid"></div>
 </section>
 
-
-<!-- =========================
-     SUBJECTS
-========================= -->
-
-<section class="section subject-section" id="subjects">
-
-<div class="section-title">
-
-<h2>📚 Explore Subjects</h2>
-
-<p>
-Choose a subject and continue your learning journey.
-</p>
-
-</div>
-
-<div class="subjects">
-
-<div class="subject" onclick="openSubject('Mathematics')">
-
-<h3>➗ Mathematics</h3>
-
-<p>
-Numbers • Algebra • Geometry • Data
-</p>
-
-</div>
-
-
-<div class="subject" onclick="openSubject('Science')">
-
-<h3>🔬 Science</h3>
-
-<p>
-Physics • Chemistry • Biology
-</p>
-
-</div>
-
-
-<div class="subject" onclick="openSubject('Social Science')">
-
-<h3>🌍 Social Science</h3>
-
-<p>
-History • Geography • Civics
-</p>
-
-</div>
-
-
-<div class="subject" onclick="openSubject('English')">
-
-<h3>📘 English</h3>
-
-<p>
-Grammar • Literature • Writing
-</p>
-
-</div>
-
-
-<div class="subject" onclick="openSubject('Hindi')">
-
-<h3>📕 Hindi</h3>
-
-<p>
-Literature • Grammar • Writing
-</p>
-
-</div>
-
-
-<div class="subject" onclick="openSubject('Computer')">
-
-<h3>💻 Computer</h3>
-
-<p>
-Technology • Coding • Digital Skills
-</p>
-
-</div>
-
-</div>
-
-
-<div class="content-area" id="contentArea">
-
-<div class="content-box">
-
-<h3 id="contentTitle"></h3>
-
-<div id="contentText"></div>
-
-</div>
-
-</div>
-
+<section class="wrap section-hidden" id="studySection">
+  <button type="button" class="back" onclick="backChapters()">← Back to Chapters</button>
+  <div class="title">
+    <div class="crumb" id="studyCrumb"></div>
+    <h2 id="chapterTitle"></h2>
+    <p>Choose one resource at a time. Finish the path before moving on.</p>
+  </div>
+  <div class="resource-grid" id="resourceGrid"></div>
+  <div class="content" id="resourceContent"></div>
 </section>
-
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section class="cta" id="about">
-
-<h2>✨ Learn. Revise. Improve.</h2>
-
-<p>
-Aditya Learns is designed to make studying more organised,
-enjoyable and student-friendly for Classes 6–9.
-</p>
-
-<a href="#classes" class="btn">
-📚 Start Learning
-</a>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
-
-<h3>✨ ADITYA LEARNS</h3>
-
-<p>
-Smart Learning Platform • Classes 6–9
-</p>
-
-<p>
-© 2026 Aditya Learns
-</p>
-
+  <h3>✨ ADITYA LEARNS</h3>
+  <p>Class 6 • 2026–27 • Study. Don't Scroll.</p>
 </footer>
 
-
-<!-- =========================
-     MODAL
-========================= -->
-
-<div class="modal" id="modal">
-
-<div class="modal-box">
-
-<div class="close" onclick="closeModal()">×</div>
-
-<h2 id="modalTitle"></h2>
-
-<div id="modalContent"></div>
-
-</div>
-
-</div>
-
-
 <script>
+(function(){
+  const bookData = [
+    {icon:"📐", subject:"Mathematics", book:"Ganita Prakash", count:12},
+    {icon:"🔬", subject:"Science", book:"Curiosity", count:12},
+    {icon:"🌍", subject:"Social Science", book:"Exploring Society: India and Beyond", count:12},
+    {icon:"🪷", subject:"Sanskrit", book:"Deepakam", count:12},
+    {icon:"🎨", subject:"Arts Education", book:"Kriti – I", count:8},
+    {icon:"🏃", subject:"Physical Education & Well-being", book:"Khel Yatra", count:8},
+    {icon:"🛠️", subject:"Vocational Education", book:"Kaushal Bodh", count:8}
+  ];
 
-/* =========================
-   CLASS SELECTION
-========================= */
+  const resourceList = [
+    ["📚","Syllabus","syllabus"],
+    ["🧠","Concept Notes","notes"],
+    ["🎥","Selected Video","video"],
+    ["❓","Question Answers","qa"],
+    ["🧩","Quiz","quiz"],
+    ["⚡","One Shot","one"],
+    ["🎯","Practice","practice"],
+    ["🔄","Rapid Revision","rapid"]
+  ];
 
-let selectedClass = 6;
+  const state = {
+    subject:"",
+    book:"",
+    chapter:1,
+    resource:"syllabus",
+    score:0,
+    answered:0
+  };
 
-function selectClass(classNumber){
+  const el = id => document.getElementById(id);
 
-    selectedClass = classNumber;
+  const booksSection = el("booksSection");
+  const chaptersSection = el("chaptersSection");
+  const studySection = el("studySection");
+  const bookGrid = el("bookGrid");
+  const chapterGrid = el("chapterGrid");
+  const resourceGrid = el("resourceGrid");
+  const resourceContent = el("resourceContent");
 
-    const contentArea =
-        document.getElementById("contentArea");
-
-    document.getElementById("contentTitle").innerText =
-        "Class " + classNumber + " Learning";
-
-    document.getElementById("contentText").innerHTML = `
-
-        <p>
-        Welcome to the Class ${classNumber} learning area.
-        </p>
-
-        <br>
-
-        <h4>📖 Available Learning</h4>
-
-        <ul>
-            <li>Chapter Notes</li>
-            <li>NCERT Question Answers</li>
-            <li>Interactive Quiz</li>
-            <li>One Shot Revision</li>
-            <li>Rapid Revision</li>
-            <li>NCERT Practice</li>
-        </ul>
-
-        <br>
-
-        <p>
-        Select a subject below to continue.
-        </p>
-
-    `;
-
-    contentArea.style.display = "block";
-
-    contentArea.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
+  window.showElement = function(id){
+    document.querySelectorAll(".wrap").forEach(s => {
+      if(s.id==="booksSection" || s.id==="chaptersSection" || s.id==="studySection") s.classList.add("section-hidden");
     });
-}
+    el(id).classList.remove("section-hidden");
+    el(id).scrollIntoView({behavior:"smooth"});
+  };
 
+  window.goHome = function(){
+    booksSection.classList.remove("section-hidden");
+    chaptersSection.classList.add("section-hidden");
+    studySection.classList.add("section-hidden");
+    window.scrollTo({top:0,behavior:"smooth"});
+  };
 
-/* =========================
-   SUBJECT
-========================= */
+  window.backBooks = function(){
+    booksSection.classList.remove("section-hidden");
+    chaptersSection.classList.add("section-hidden");
+    studySection.classList.add("section-hidden");
+    booksSection.scrollIntoView({behavior:"smooth"});
+  };
 
-function openSubject(subject){
+  window.backChapters = function(){
+    chaptersSection.classList.remove("section-hidden");
+    studySection.classList.add("section-hidden");
+    chaptersSection.scrollIntoView({behavior:"smooth"});
+  };
 
-    const contentArea =
-        document.getElementById("contentArea");
+  window.openBook = function(index){
+    const item = bookData[index];
+    state.subject = item.subject;
+    state.book = item.book;
+    el("bookCrumb").textContent = "CLASS 6 • " + item.subject;
+    el("bookTitle").textContent = item.book;
 
-    document.getElementById("contentTitle").innerText =
-        subject + " — Class " + selectedClass;
+    let html = "";
+    for(let i=1;i<=item.count;i++){
+      html += `
+        <button type="button" class="chapter-card" onclick="openChapter(${i})">
+          <small>CHAPTER / THEME ${i}</small>
+          <h3>${item.book} — Chapter ${i}</h3>
+          <p>Open the guided study path.</p>
+        </button>`;
+    }
+    chapterGrid.innerHTML = html;
+    booksSection.classList.add("section-hidden");
+    chaptersSection.classList.remove("section-hidden");
+    studySection.classList.add("section-hidden");
+    chaptersSection.scrollIntoView({behavior:"smooth"});
+  };
 
-    document.getElementById("contentText").innerHTML = `
+  window.openChapter = function(number){
+    state.chapter = number;
+    state.resource = "syllabus";
+    state.score = 0;
+    state.answered = 0;
 
-        <p>
-        You are studying <strong>${subject}</strong>
-        for <strong>Class ${selectedClass}</strong>.
-        </p>
+    el("studyCrumb").textContent = `CLASS 6 • ${state.subject} • ${state.book}`;
+    el("chapterTitle").textContent = `Chapter ${number}`;
+    renderResources();
+    renderContent();
 
-        <br>
+    chaptersSection.classList.add("section-hidden");
+    studySection.classList.remove("section-hidden");
+    studySection.scrollIntoView({behavior:"smooth"});
+  };
 
-        <h4>📚 Learning Options</h4>
+  window.openResource = function(key){
+    state.resource = key;
+    state.score = 0;
+    state.answered = 0;
+    renderResources();
+    renderContent();
+  };
 
+  function renderResources(){
+    resourceGrid.innerHTML = resourceList.map(([icon,name,key]) => `
+      <button type="button" class="resource-card ${state.resource===key ? "active":""}" onclick="openResource('${key}')">
+        <div class="ri">${icon}</div>
+        <h3>${name}</h3>
+        <p>Open ${name}</p>
+      </button>
+    `).join("");
+  }
+
+  function renderContent(){
+    const title = `${state.book} — Chapter ${state.chapter}`;
+    let html = "";
+
+    if(state.resource==="syllabus"){
+      html = `
+        <h2>📚 Syllabus</h2>
+        <div class="note"><strong>Class 6 • 2026–27</strong><br>${title}</div>
+        <h3>Study focus</h3>
         <ul>
-            <li>Chapter Notes</li>
-            <li>Important Concepts</li>
-            <li>Question Answers</li>
-            <li>NCERT Practice</li>
-            <li>Rapid Revision</li>
-            <li>Quiz</li>
+          <li>Understand the main ideas before memorising.</li>
+          <li>Learn important terms, examples, activities and connections.</li>
+          <li>Complete the relevant textbook practice.</li>
+          <li>Revise and self-check before moving to the next chapter.</li>
         </ul>
+      `;
+    }
 
-        <br>
+    if(state.resource==="notes"){
+      html = `
+        <h2>🧠 Concept Notes</h2>
+        <div class="note"><strong>Start Here</strong><br>Read the chapter introduction and write its central idea in one sentence.</div>
+        <div class="note"><strong>Key Concepts</strong><br>Make a short list of the main ideas, definitions, examples and activities.</div>
+        <div class="note"><strong>My Notes</strong><br>Rewrite the important points in your own words.</div>
+        <div class="note"><strong>Exam Box</strong><br>Mark the facts, vocabulary, diagrams, formulas or ideas that need revision.</div>
+      `;
+    }
 
-        <button class="btn"
-        onclick="openResource('Notes')">
-        📖 Open Notes
-        </button>
+    if(state.resource==="video"){
+      const searchUrl = "https://www.youtube.com/results?search_query=" +
+        encodeURIComponent(`NCERT Class 6 ${state.subject} ${state.book} Chapter ${state.chapter}`);
+      html = `
+        <h2>🎥 Selected Video</h2>
+        <p>Use one reviewed lesson instead of opening the general YouTube feed.</p>
+        <a class="video" target="_blank" rel="noopener" href="${searchUrl}">▶ Find Chapter Video</a>
+        <div class="note">For the finished site, replace this search link with one manually reviewed, legitimate video URL.</div>
+      `;
+    }
 
-    `;
+    if(state.resource==="qa"){
+      html = `
+        <h2>❓ Question Answers</h2>
+        ${[
+          "What is the central idea of this chapter?",
+          "Write three important points you learned.",
+          "Which example/activity helps you understand the topic?",
+          "What question would you ask your teacher?"
+        ].map((q,i)=>`
+          <div class="note">
+            <strong>Q${i+1}. ${q}</strong><br><br>
+            <b>Answer:</b> Add the chapter-specific answer from the current NCERT text and classroom learning.
+          </div>`).join("")}
+      `;
+    }
 
-    contentArea.style.display = "block";
+    if(state.resource==="one"){
+      html = `
+        <h2>⚡ One Shot</h2>
+        <ol>
+          <li>Read the chapter overview.</li>
+          <li>Understand the key ideas.</li>
+          <li>Review examples and activities.</li>
+          <li>Practise textbook questions.</li>
+          <li>Take the quiz.</li>
+        </ol>
+      `;
+    }
 
-    contentArea.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
-}
+    if(state.resource==="practice"){
+      html = `
+        <h2>🎯 Practice</h2>
+        <ol>
+          <li>Explain the main idea in your own words.</li>
+          <li>Write five key terms/facts.</li>
+          <li>Complete the relevant textbook exercise.</li>
+          <li>Solve one application-based question.</li>
+          <li>Check mistakes and revise.</li>
+        </ol>
+      `;
+    }
 
-
-/* =========================
-   RESOURCE MODAL
-========================= */
-
-function openResource(resource){
-
-    document.getElementById("modalTitle").innerText =
-        resource;
-
-    document.getElementById("modalContent").innerHTML = `
-
-        <p>
-        <strong>Class ${selectedClass}</strong>
-        learning resource.
-        </p>
-
-        <br>
-
-        <h3>${resource}</h3>
-
-        <p>
-        This section is ready for your
-        ${resource.toLowerCase()} content.
-        </p>
-
-        <br>
-
+    if(state.resource==="rapid"){
+      html = `
+        <h2>🔄 Rapid Revision</h2>
         <ul>
-            <li>Important concepts</li>
-            <li>NCERT topics</li>
-            <li>Exam-focused material</li>
-            <li>Easy revision points</li>
+          <li>⭐ Central idea</li>
+          <li>⭐ Key definitions / vocabulary</li>
+          <li>⭐ Important examples / activities</li>
+          <li>⭐ Important diagram / formula / fact where applicable</li>
+          <li>⭐ Textbook practice</li>
+          <li>⭐ Final self-test</li>
         </ul>
+      `;
+    }
 
-        <br>
+    if(state.resource==="quiz"){
+      const questions = [
+        {q:"What should you do first?",o:["Understand the concept","Skip the chapter","Only memorise","Open Shorts"],a:0},
+        {q:"Which resource is for quick final revision?",o:["Rapid Revision","Home","Footer","About"],a:0},
+        {q:"What should you practise?",o:["Only videos","Textbook questions and activities","Only headings","Nothing"],a:1},
+        {q:"What is the goal of Focus Mode?",o:["More scrolling","Distraction-free study","More recommendations","Social media"],a:1}
+      ];
+      window.activeQuiz = questions;
 
-        <p>
-        More chapter-wise content can be added
-        here as the website grows.
-        </p>
+      html = `<h2>🧩 Chapter Quiz</h2>`;
+      questions.forEach((q,i)=>{
+        html += `<div class="quiz-question"><b>${i+1}. ${q.q}</b></div>`;
+        q.o.forEach((option,j)=>{
+          html += `<button type="button" class="option" onclick="answerQuiz(${i},${j},this)">${option}</button>`;
+        });
+      });
+      html += `<div class="score" id="quizScore"></div>`;
+    }
 
-    `;
+    resourceContent.innerHTML = html;
+  }
 
-    document.getElementById("modal")
-        .classList.add("active");
-}
+  window.answerQuiz = function(questionIndex,choice,button){
+    const questions = window.activeQuiz || [];
+    if(!questions[questionIndex]) return;
 
+    const parent = button.parentElement;
+    parent.querySelectorAll(".option").forEach(b => b.disabled = true);
 
-/* =========================
-   QUIZ
-========================= */
-
-function openQuiz(){
-
-    document.getElementById("modalTitle").innerText =
-        "🧠 Class " + selectedClass + " Quiz";
-
-    document.getElementById("modalContent").innerHTML = `
-
-        <div class="quiz-box">
-
-            <div class="question">
-            Which subject would you like to practice?
-            </div>
-
-            <div class="options">
-
-                <div class="option"
-                onclick="quizAnswer(this,true)">
-                Mathematics
-                </div>
-
-                <div class="option"
-                onclick="quizAnswer(this,false)">
-                Science
-                </div>
-
-                <div class="option"
-                onclick="quizAnswer(this,false)">
-                English
-                </div>
-
-                <div class="option"
-                onclick="quizAnswer(this,false)">
-                Social Science
-                </div>
-
-            </div>
-
-            <p id="quizMessage"
-            style="margin-top:20px;font-weight:bold;">
-            </p>
-
-        </div>
-
-    `;
-
-    document.getElementById("modal")
-        .classList.add("active");
-}
-
-
-function quizAnswer(element,correct){
-
-    if(correct){
-
-        element.classList.add("correct");
-
-        document.getElementById("quizMessage")
-        .innerText =
-        "🎉 Correct! Great job.";
-
+    if(choice===questions[questionIndex].a){
+      button.classList.add("correct");
+      state.score++;
     }else{
-
-        element.classList.add("wrong");
-
-        document.getElementById("quizMessage")
-        .innerText =
-        "Try again! Keep learning.";
-
+      button.classList.add("wrong");
+      const opts = parent.querySelectorAll(".option");
+      if(opts[questions[questionIndex].a]) opts[questions[questionIndex].a].classList.add("correct");
     }
 
-}
-
-
-/* =========================
-   CLOSE MODAL
-========================= */
-
-function closeModal(){
-
-    document.getElementById("modal")
-        .classList.remove("active");
-}
-
-
-/* Close modal when clicking outside */
-
-document.getElementById("modal")
-.addEventListener("click",function(e){
-
-    if(e.target === this){
-        closeModal();
+    state.answered++;
+    if(state.answered===questions.length){
+      const scoreBox = el("quizScore");
+      if(scoreBox) scoreBox.textContent = `Your Score: ${state.score} / ${questions.length}`;
     }
+  };
 
-});
-
+  renderBooks();
+})();
 </script>
-
 </body>
 </html>
