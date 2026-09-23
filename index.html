@@ -25,6 +25,16 @@
 .dashboard{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.mini{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.mini h3{margin-top:0}
 footer{margin-top:50px;background:#0b1120;color:#fff;text-align:center;padding:38px}.foot-muted{color:#aeb7c9}
 @media(max-width:950px){.classes{grid-template-columns:repeat(2,1fr)}.chapters{grid-template-columns:repeat(2,1fr)}.resources{grid-template-columns:repeat(2,1fr)}.dashboard{grid-template-columns:1fr}}@media(max-width:650px){.nav{padding:12px 14px}.nav-actions{display:none}.hero{padding:52px 16px 30px}.wrap{padding:22px 15px}.subjects,.chapters,.resources,.classes{grid-template-columns:1fr}.chapter-hero h2{font-size:26px}}
+
+.selector-wrap{max-width:1060px;margin:0 auto 34px;padding:0 22px}
+.selector{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:0 14px 40px #18223b0c}
+.selector-title{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}.selector-title h2{margin:0;font-size:28px}.selector-title p{margin:4px 0 0;color:var(--muted)}
+.select-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.field label{display:block;font-size:12px;font-weight:900;color:#58637a;margin:0 0 7px;text-transform:uppercase;letter-spacing:.4px}
+.field select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);outline:none}
+.action-title{margin:22px 0 12px;font-weight:900}.action-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.action-btn{border:1px solid var(--line);background:#f9faff;padding:13px;border-radius:14px;text-align:left;font-weight:850}.action-btn:hover{border-color:#b9b0f4;background:#f4f1ff}.action-btn span{font-size:22px;display:block;margin-bottom:5px}.selection-status{margin-top:14px;color:var(--muted);font-size:14px}
+@media(max-width:800px){.select-grid{grid-template-columns:1fr}.action-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.action-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -39,7 +49,33 @@ footer{margin-top:50px;background:#0b1120;color:#fff;text-align:center;padding:3
     <p>Choose your class, open your chapter, follow the study path, practise and finish. No endless searching.</p>
     <div class="hero-cta"><button class="btn primary" onclick="showClasses()">🚀 Get Started</button><button class="btn soft" onclick="showDashboard()">📈 My Progress</button></div>
   </div>
-  <div class="wrap">
+  
+  <div class="selector-wrap">
+    <div class="selector">
+      <div class="selector-title">
+        <div><h2>🎯 Choose What You Want to Study</h2><p>Select your class, subject and chapter — then tell Aditya Learns what you want to do.</p></div>
+        <button class="btn soft small" onclick="resetSelector()">Reset</button>
+      </div>
+      <div class="select-grid">
+        <div class="field"><label>1. Choose Class</label><select id="pickClass" onchange="selectorClassChanged()"><option value="">Select class</option></select></div>
+        <div class="field"><label>2. Choose Subject</label><select id="pickSubject" onchange="selectorSubjectChanged()" disabled><option value="">Select subject</option></select></div>
+        <div class="field"><label>3. Choose Chapter</label><select id="pickChapter" onchange="selectorChapterChanged()" disabled><option value="">Select chapter</option></select></div>
+      </div>
+      <div class="action-title">4. What do you want to do?</div>
+      <div class="action-grid">
+        <button class="action-btn" onclick="startSelected(0)"><span>📚</span>Syllabus</button>
+        <button class="action-btn" onclick="startSelected(1)"><span>🧠</span>Smart Notes</button>
+        <button class="action-btn" onclick="startSelected(2)"><span>🎥</span>Video Lesson</button>
+        <button class="action-btn" onclick="startSelected(3)"><span>📝</span>Question Answers</button>
+        <button class="action-btn" onclick="startSelected(4)"><span>🧩</span>15-Question Quiz</button>
+        <button class="action-btn" onclick="startSelected(5)"><span>⚡</span>One Shot</button>
+        <button class="action-btn" onclick="startSelected(6)"><span>🎯</span>NCERT Practice</button>
+        <button class="action-btn" onclick="startSelected(7)"><span>🔄</span>Rapid Revision</button>
+      </div>
+      <div class="selection-status" id="selectionStatus">Choose a class to begin.</div>
+    </div>
+  </div>
+<div class="wrap">
     <div class="section-head"><div><h2>What are you studying today?</h2><p>Pick a class to begin.</p></div></div>
     <div class="search"><input id="homeSearch" placeholder="Search class, subject or chapter…"><button onclick="searchSite()">Search</button></div>
     <div id="classGrid" class="grid classes"></div>
@@ -98,6 +134,41 @@ function showDashboard(){
  state={...state,...p}; const d=DATA[state.cls]?.subjects?.[state.subject]; const ch=d?.chapters?.[state.chapter];
  appBody.innerHTML='<button class="btn soft back" onclick="showClasses()">← Back</button><div class="dashboard"><div class="mini"><div class="crumb">CONTINUE LEARNING</div><h2>Class '+state.cls+' • '+state.subject+'</h2><p><b>'+(ch||"Chapter")+'</b></p><div class="progress"><i style="width:'+Math.min(100,(state.step/8)*100)+'%"></i></div><p class="muted">'+state.step+' of 8 steps complete</p><button class="btn primary" onclick="openChapter('+state.cls+','+JSON.stringify(state.subject)+','+state.chapter+')">Continue →</button></div><div class="mini"><h3>Study path</h3><p class="muted">Syllabus → Notes → Video → Q&A → Quiz → One Shot → Practice → Rapid Revision</p></div></div>';
 }
+
+function resetSelector(){
+ const c=document.getElementById("pickClass"),s=document.getElementById("pickSubject"),ch=document.getElementById("pickChapter");
+ c.value="";s.innerHTML='<option value="">Select subject</option>';s.disabled=true;ch.innerHTML='<option value="">Select chapter</option>';ch.disabled=true;
+ document.getElementById("selectionStatus").textContent="Choose a class to begin.";
+}
+function initSelector(){
+ const c=document.getElementById("pickClass");
+ c.innerHTML='<option value="">Select class</option>'+[6,7,8,9].map(x=>'<option value="'+x+'">Class '+x+'</option>').join("");
+}
+function selectorClassChanged(){
+ const c=Number(document.getElementById("pickClass").value),s=document.getElementById("pickSubject"),ch=document.getElementById("pickChapter");
+ s.innerHTML='<option value="">Select subject</option>';ch.innerHTML='<option value="">Select chapter</option>';ch.disabled=true;
+ if(!c){s.disabled=true;document.getElementById("selectionStatus").textContent="Choose a class to begin.";return}
+ s.innerHTML='<option value="">Select subject</option>'+Object.keys(DATA[c].subjects).map(x=>'<option value="'+x+'">'+x+'</option>').join("");
+ s.disabled=false;document.getElementById("selectionStatus").textContent="Great. Now choose a subject.";
+}
+function selectorSubjectChanged(){
+ const c=Number(document.getElementById("pickClass").value),s=document.getElementById("pickSubject").value,ch=document.getElementById("pickChapter");
+ ch.innerHTML='<option value="">Select chapter</option>';
+ const d=DATA[c]?.subjects?.[s];
+ if(!d||d.soon){ch.disabled=true;document.getElementById("selectionStatus").textContent="This subject is marked Coming Soon until its current chapter list is verified.";return}
+ ch.innerHTML+='<option value="">Select chapter</option>'+d.chapters.map((x,i)=>'<option value="'+i+'">Chapter '+(i+1)+' — '+x+'</option>').join("");
+ ch.disabled=false;document.getElementById("selectionStatus").textContent="Now choose a chapter.";
+}
+function selectorChapterChanged(){
+ const c=document.getElementById("pickClass").value,s=document.getElementById("pickSubject").value,i=document.getElementById("pickChapter").value;
+ document.getElementById("selectionStatus").textContent=(c&&s&&i!=="")?"Perfect. Now choose what you want to do.":"Choose a chapter to continue.";
+}
+function startSelected(step){
+ const c=Number(document.getElementById("pickClass").value),s=document.getElementById("pickSubject").value,i=document.getElementById("pickChapter").value;
+ if(!c||!s||i===""){document.getElementById("selectionStatus").textContent="Please choose Class → Subject → Chapter first.";return}
+ openChapter(c,s,Number(i)); setTimeout(()=>openStep(step),120);
+}
+
 function renderClasses(){
  classGrid.innerHTML=[6,7,8,9].map(c=>'<button class="card class-card" onclick="openClass('+c+')"><div class="class-icon">'+clsIcons[c]+'</div><div class="class-no">Class '+c+'</div><div class="muted">NCERT • Session 2026–27</div><span class="tag">Start learning →</span></button>').join("");
 }
@@ -210,6 +281,7 @@ function searchSite(){
 }
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 renderClasses();
+initSelector();
 </script>
 </body>
 </html>
