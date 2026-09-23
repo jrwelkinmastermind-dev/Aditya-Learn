@@ -280,6 +280,88 @@ function searchSite(){
  classGrid.innerHTML=results.length?results.slice(0,40).map(r=>r.type==="subject"?'<button class="card" onclick="openClass('+r.c+');openSubject('+JSON.stringify(r.s)+')"><div style="font-size:34px">'+(icons[r.s]||"📚")+'</div><h3>Class '+r.c+' • '+r.s+'</h3><p class="muted">'+DATA[r.c].subjects[r.s].book+'</p></button>':'<button class="card" onclick="openClass('+r.c+');setTimeout(()=>openSubject('+JSON.stringify(r.s)+'),80);setTimeout(()=>openChapter('+r.c+','+JSON.stringify(r.s)+','+r.i+'),160)"><div class="chapter-num">CLASS '+r.c+' • '+r.s+'</div><h3>'+r.ch+'</h3><p class="muted">Open chapter →</p></button>').join(""):'<div class="coming" style="grid-column:1/-1">No matching chapter found. Try “Class 9”, “Mathematics”, “Science” or a chapter name.</div>';
 }
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+let ORIGINAL_OPEN_STEP = openStep;
+let ORIGINAL_RENDER_QUIZ = renderQuiz;
+let ADITYA_CONTENT = {};
+let CONTENT_READY = false;
+
+function packKey(){
+ const c=state.cls,s=state.subject,t=DATA[c]?.subjects?.[s]?.chapters?.[state.chapter]||"";
+ if(c===9 && s==="Science" && t==="Describing Motion Around Us") return "cbse-9-science-describing-motion-around-us";
+ if(c===9 && s==="Mathematics" && t==="Orienting Yourself: The Use of Coordinates") return "cbse-9-mathematics-orienting-yourself";
+ if(c===6 && s==="Science" && t==="The Wonderful World of Science") return "cbse-6-science-wonderful-world";
+ return "";
+}
+function currentPack(){return ADITYA_CONTENT.packs?.[packKey()]||null}
+
+function renderPackQuiz(pack){
+ const box=document.getElementById("studyPanel");
+ let h='<h3>🧩 15-Question Chapter Quiz</h3><div class="quiz-head"><b>'+pack.chapter+'</b><span>15 questions</span></div>';
+ state.packAnswers={};state.packScore=0;state.activePack=pack;
+ pack.quiz.forEach((q,i)=>{
+   h+='<div class="q" id="packQ'+i+'"><h4>Question '+(i+1)+' of 15 — '+q[0]+'</h4>'+q[1].map((o,j)=>'<button class="option" onclick="answerPack('+i+','+j+',this)">'+o+'</button>').join("")+'<div id="packE'+i+'"></div></div>';
+ });
+ h+='<div id="packFinal"></div>';
+ box.innerHTML=h;box.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function answerPack(i,j,btn){
+ if(state.packAnswers[i]!==undefined)return;
+ const q=state.activePack.quiz[i];state.packAnswers[i]=j;
+ const box=document.getElementById("packQ"+i);box.querySelectorAll(".option").forEach(x=>x.disabled=true);
+ if(j===q[2]){btn.classList.add("correct");state.packScore++}else{btn.classList.add("wrong");box.querySelectorAll(".option")[q[2]].classList.add("correct")}
+ document.getElementById("packE"+i).innerHTML='<div class="info"><strong>Explanation:</strong> '+q[3]+'</div>';
+ if(Object.keys(state.packAnswers).length===15){
+   document.getElementById("packFinal").innerHTML='<div class="result"><div class="score">Score: '+state.packScore+' / 15</div><p>Quiz complete. Review wrong answers before moving on.</p><button class="btn primary" onclick="openStep(5)">Continue to One Shot →</button><button class="btn soft" onclick="renderQuiz()">Retry Quiz</button></div>';
+   state.quizBest=Math.max(Number(localStorage.getItem("adityaBestQuiz")||0),state.packScore);localStorage.setItem("adityaBestQuiz",state.quizBest);
+ }
+}
+function renderPack(pack,i){
+ const box=document.getElementById("studyPanel");let h="";
+ if(i===0){
+  h='<h3>📚 Syllabus</h3><div class="info"><strong>Chapter focus</strong><br>'+pack.notes[0][1]+'</div><h4>Learning goals & key ideas</h4><ul class="note-list">'+pack.notes.slice(1,6).map(x=>'<li><b>'+x[0]+':</b> '+x[1]+'</li>').join("")+'</ul><div class="info"><strong>Study goal:</strong> Understand the idea before memorising facts.</div>';
+ }else if(i===1){
+  h='<h3>🧠 Smart Notes</h3>'+pack.notes.map(x=>'<div class="info"><strong>'+x[0]+'</strong><br>'+x[1]+'</div>').join("")+
+    '<h4>Exam Tip</h4><div class="info">'+pack.exam_tip+'</div>';
+ }else if(i===2){
+  h='<h3>🎥 Video Lesson</h3><p>'+pack.video_note+'</p><a class="video" target="_blank" rel="noopener" href="'+pack.video_url+'">▶ Open focused YouTube lesson search</a><div class="info">Aditya Learns will later replace this with one exact reviewer-approved video URL. The site never downloads or re-hosts third-party videos.</div>';
+ }else if(i===3){
+  h='<h3>📝 Question Answers</h3>'+pack.qa.map((x,n)=>'<div class="info"><strong>Q'+(n+1)+'. '+x[0]+'</strong><br><br><b>Answer:</b> '+x[1]+'</div>').join("")+'<div class="info"><strong>More:</strong> Chapter-specific long/application questions can be added here without changing the UI.</div>';
+ }else if(i===4){
+  renderPackQuiz(pack); return;
+ }else if(i===5){
+  h='<h3>⚡ One Shot</h3><div class="info"><strong>15–30 minute revision</strong><br>'+pack.notes[0][1]+'</div><ol>'+pack.revision.map(x=>'<li>'+x+'</li>').join("")+'</ol><div class="info"><strong>Exam Tip:</strong> '+pack.exam_tip+'</div>';
+ }else if(i===6){
+  h='<h3>🎯 NCERT Practice</h3><p>Attempt the current textbook exercises first, then use these chapter-focused practice questions.</p><ol>'+pack.qa.slice(0,5).map(x=>'<li>'+x[0]+'</li>').join("")+'</ol><div class="info">Write your answer before checking the notes. Unofficial practice questions should not be labelled as exact NCERT questions.</div>';
+ }else if(i===7){
+  h='<h3>🔄 Rapid Revision</h3><ul class="note-list">'+pack.revision.map(x=>'<li>✅ '+x+'</li>').join("")+'</ul>';
+ }
+ h+='<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px"><button class="btn soft" onclick="openStep('+Math.max(0,i-1)+')">← Previous</button><button class="btn primary" onclick="completeStep('+i+')">'+(i===7?"✅ Complete Chapter":"Next →")+'</button></div>';
+ box.innerHTML=h;box.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function openStep(i){
+ const pack=currentPack();
+ if(!CONTENT_READY){
+   ORIGINAL_OPEN_STEP(i);
+   return;
+ }
+ if(pack){
+   state.step=i;store();renderChapter();renderPack(pack,i);
+ }else{
+   ORIGINAL_OPEN_STEP(i);
+ }
+}
+function renderQuiz(){
+ const pack=currentPack();
+ if(CONTENT_READY && pack){renderPackQuiz(pack);return;}
+ ORIGINAL_RENDER_QUIZ();
+}
+
+fetch("data/cbse-content.json",{cache:"no-store"})
+ .then(r=>r.json())
+ .then(d=>{ADITYA_CONTENT=d;CONTENT_READY=true;})
+ .catch(()=>{CONTENT_READY=false;});
+
 renderClasses();
 initSelector();
 </script>
