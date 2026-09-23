@@ -1,346 +1,547 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aditya Learns — Class 6 • 2026–27</title>
-<style>
-:root{--p:#6957e8;--p2:#a33fb0;--pink:#e94491;--ink:#152033;--muted:#687386;--bg:#f5f7fc;--white:#fff;--line:#e7eaf1;--green:#19a463}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
-nav{position:sticky;top:0;z-index:10;background:linear-gradient(105deg,var(--p),var(--p2));color:#fff;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 5px 22px #0002}
-.logo{font-size:24px;font-weight:900}.logo span{color:#ffd83d}nav button{border:0;background:transparent;color:#fff;font-weight:800;margin-left:16px;cursor:pointer}
-.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#eeeaff,#eafaff)}.badge{display:inline-block;padding:9px 16px;border-radius:30px;background:#fff;color:var(--p);font-weight:800;box-shadow:0 5px 20px #0001}.hero h1{font-size:clamp(42px,8vw,76px);margin:18px 0;background:linear-gradient(90deg,var(--p),var(--pink));-webkit-background-clip:text;color:transparent}.hero p{max-width:850px;margin:auto;color:#596477;font-size:18px;line-height:1.6}.hero .cta{margin-top:25px;border:0;background:var(--ink);color:#fff;padding:14px 23px;border-radius:12px;font-weight:900;cursor:pointer}
-.wrap{max-width:1180px;margin:auto;padding:42px 20px}.title{text-align:center;margin-bottom:28px}.title h2{font-size:34px;margin:5px 0 8px}.title p{color:var(--muted)}
-.books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.book-card{border:0;background:#fff;border-radius:21px;padding:24px;box-shadow:0 8px 28px #0000000d;text-align:left;transition:.2s;cursor:pointer}.book-card:hover,.chapter-card:hover,.resource-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px #0002}.book-card .icon{font-size:40px}.book-card h3,.chapter-card h3,.resource-card h3{margin:9px 0 6px}.book-card p,.chapter-card p,.resource-card p{margin:0;color:var(--muted);line-height:1.5}.tag{display:inline-block;margin-top:14px;background:#f0edff;color:var(--p);padding:6px 10px;border-radius:20px;font-size:12px;font-weight:800}
-.section-hidden{display:none}.back{border:0;background:#e9edf5;padding:10px 15px;border-radius:10px;font-weight:800;margin-bottom:18px;cursor:pointer}.crumb{color:var(--p);font-weight:900;margin-bottom:7px}
-.chapter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.chapter-card{border:0;background:#fff;border-radius:21px;padding:24px;box-shadow:0 8px 28px #0000000d;text-align:left;transition:.2s;cursor:pointer}.chapter-card small{color:var(--p);font-weight:900}
-.resource-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.resource-card{border:2px solid var(--line);background:#fff;border-radius:21px;padding:22px;text-align:left;box-shadow:0 8px 28px #0000000d;cursor:pointer}.resource-card.active{border-color:var(--p);background:#f8f6ff}.ri{font-size:28px}
-.content{background:#fff;border-radius:22px;padding:30px;box-shadow:0 8px 28px #0001;min-height:300px}.content h2{color:var(--p);margin-top:0}.note{padding:15px;margin:11px 0;background:#f8f6ff;border-left:5px solid var(--p);border-radius:9px;line-height:1.6}.video{display:inline-block;background:#e44069;color:#fff;text-decoration:none;padding:13px 18px;border-radius:11px;font-weight:900}
-.option{display:block;width:100%;padding:13px;margin:8px 0;background:#fff;border:2px solid var(--line);border-radius:10px;text-align:left;cursor:pointer}.option:disabled{cursor:default}.option.correct{background:#dcf8e9;border-color:var(--green)}.option.wrong{background:#ffe1e1;border-color:#d44}.score{font-size:20px;font-weight:900;margin-top:18px}
-footer{margin-top:40px;background:#0a0f19;color:#fff;text-align:center;padding:35px}
-@media(max-width:900px){.books-grid,.chapter-grid{grid-template-columns:repeat(2,1fr)}.resource-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){nav{flex-direction:column;gap:8px}.books-grid,.chapter-grid,.resource-grid{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
+You are a senior product designer, UX architect, frontend developer, education-platform architect, and NCERT curriculum content specialist.
 
-<nav>
-  <div class="logo">✨ ADITYA <span>LEARNS</span></div>
-  <div>
-    <button type="button" onclick="goHome()">Home</button>
-    <button type="button" onclick="showElement('booksSection')">Subjects</button>
-  </div>
-</nav>
+Build a polished, modern, distraction-free educational web platform called:
 
-<section class="hero">
-  <div class="badge">🎓 Class 6 • Session 2026–27</div>
-  <h1>Study. Don't Scroll.</h1>
-  <p>A distraction-free study space built around the Class 6 curriculum. Choose a textbook area, chapter and follow one guided study path.</p>
-  <button type="button" class="cta" onclick="showElement('booksSection')">🚀 Start Studying</button>
-</section>
+ADITYA LEARNS
+Tagline: “Study. Don’t Scroll.”
 
-<section class="wrap" id="booksSection">
-  <div class="title">
-    <h2>📚 Class 6 — Choose Your Book</h2>
-    <p>Start with a curricular area, then open a chapter and its study tools.</p>
-  </div>
-  <div class="books-grid" id="bookGrid"></div>
-</section>
+PROJECT PURPOSE
+Aditya Learns is a free student-first learning platform for Classes 6–9. It is designed around a real student problem: when students go to YouTube to study one chapter, they get distracted by recommendations, Shorts, influencers and unrelated videos, and waste time searching for notes.
 
-<section class="wrap section-hidden" id="chaptersSection">
-  <button type="button" class="back" onclick="backBooks()">← Back to Books</button>
-  <div class="title">
-    <div class="crumb" id="bookCrumb"></div>
-    <h2 id="bookTitle"></h2>
-    <p>Select a chapter/theme to start.</p>
-  </div>
-  <div class="chapter-grid" id="chapterGrid"></div>
-</section>
+The goal is NOT to create another resource-directory website.
 
-<section class="wrap section-hidden" id="studySection">
-  <button type="button" class="back" onclick="backChapters()">← Back to Chapters</button>
-  <div class="title">
-    <div class="crumb" id="studyCrumb"></div>
-    <h2 id="chapterTitle"></h2>
-    <p>Choose one resource at a time. Finish the path before moving on.</p>
-  </div>
-  <div class="resource-grid" id="resourceGrid"></div>
-  <div class="content" id="resourceContent"></div>
-</section>
+The goal is:
+OPEN → CHOOSE → STUDY → PRACTICE → COMPLETE.
 
-<footer>
-  <h3>✨ ADITYA LEARNS</h3>
-  <p>Class 6 • 2026–27 • Study. Don't Scroll.</p>
-</footer>
+The student should spend time learning, not searching for what to learn.
 
-<script>
-(function(){
-  const bookData = [
-    {icon:"📐", subject:"Mathematics", book:"Ganita Prakash", count:12},
-    {icon:"🔬", subject:"Science", book:"Curiosity", count:12},
-    {icon:"🌍", subject:"Social Science", book:"Exploring Society: India and Beyond", count:12},
-    {icon:"🪷", subject:"Sanskrit", book:"Deepakam", count:12},
-    {icon:"🎨", subject:"Arts Education", book:"Kriti – I", count:8},
-    {icon:"🏃", subject:"Physical Education & Well-being", book:"Khel Yatra", count:8},
-    {icon:"🛠️", subject:"Vocational Education", book:"Kaushal Bodh", count:8}
-  ];
+TARGET USERS
+School students of Classes 6–9 and their parents.
+The interface must be extremely simple, friendly, fast, mobile-first and attractive enough that students enjoy using it.
 
-  const resourceList = [
-    ["📚","Syllabus","syllabus"],
-    ["🧠","Concept Notes","notes"],
-    ["🎥","Selected Video","video"],
-    ["❓","Question Answers","qa"],
-    ["🧩","Quiz","quiz"],
-    ["⚡","One Shot","one"],
-    ["🎯","Practice","practice"],
-    ["🔄","Rapid Revision","rapid"]
-  ];
+CURRICULUM
+Use the official NCERT 2026–27 / current NCF-SE-aligned curriculum and textbook structure for Classes 6–9.
 
-  const state = {
-    subject:"",
-    book:"",
-    chapter:1,
-    resource:"syllabus",
-    score:0,
-    answered:0
-  };
+IMPORTANT:
+- Do NOT invent syllabus chapters.
+- Do NOT mix old NCERT chapter lists with new 2026–27 books.
+- Do NOT label placeholder content as official NCERT content.
+- Verify curriculum/book/chapter information from official NCERT sources before publishing it.
+- Keep curriculum data structured so it can easily be updated when NCERT changes anything.
+- Show the academic session clearly as 2026–27.
+- Where official information is unavailable, mark content as “Coming Soon” rather than inventing it.
 
-  const el = id => document.getElementById(id);
+CORE USER JOURNEY
 
-  const booksSection = el("booksSection");
-  const chaptersSection = el("chaptersSection");
-  const studySection = el("studySection");
-  const bookGrid = el("bookGrid");
-  const chapterGrid = el("chapterGrid");
-  const resourceGrid = el("resourceGrid");
-  const resourceContent = el("resourceContent");
+HOME
+↓
+SELECT CLASS
+↓
+SELECT SUBJECT / CURRICULAR AREA
+↓
+SELECT NCERT BOOK
+↓
+SELECT CHAPTER / THEME
+↓
+START STUDY
+↓
+GUIDED STUDY PATH
 
-  window.showElement = function(id){
-    document.querySelectorAll(".wrap").forEach(s => {
-      if(s.id==="booksSection" || s.id==="chaptersSection" || s.id==="studySection") s.classList.add("section-hidden");
-    });
-    el(id).classList.remove("section-hidden");
-    el(id).scrollIntoView({behavior:"smooth"});
-  };
+Every chapter must provide:
 
-  window.goHome = function(){
-    booksSection.classList.remove("section-hidden");
-    chaptersSection.classList.add("section-hidden");
-    studySection.classList.add("section-hidden");
-    window.scrollTo({top:0,behavior:"smooth"});
-  };
+1. 📚 SYLLABUS
+2. 🧠 CONCEPT / NOTES
+3. 🎥 VIDEO LESSON
+4. 📝 QUESTION ANSWERS
+5. 🧩 QUIZ
+6. ⚡ ONE SHOT
+7. 🎯 NCERT PRACTICE
+8. 🔄 RAPID REVISION
 
-  window.backBooks = function(){
-    booksSection.classList.remove("section-hidden");
-    chaptersSection.classList.add("section-hidden");
-    studySection.classList.add("section-hidden");
-    booksSection.scrollIntoView({behavior:"smooth"});
-  };
+CHAPTER STUDY FLOW
 
-  window.backChapters = function(){
-    chaptersSection.classList.remove("section-hidden");
-    studySection.classList.add("section-hidden");
-    chaptersSection.scrollIntoView({behavior:"smooth"});
-  };
+When a student opens a chapter, do NOT simply display eight unrelated buttons.
 
-  window.openBook = function(index){
-    const item = bookData[index];
-    state.subject = item.subject;
-    state.book = item.book;
-    el("bookCrumb").textContent = "CLASS 6 • " + item.subject;
-    el("bookTitle").textContent = item.book;
+Show:
 
-    let html = "";
-    for(let i=1;i<=item.count;i++){
-      html += `
-        <button type="button" class="chapter-card" onclick="openChapter(${i})">
-          <small>CHAPTER / THEME ${i}</small>
-          <h3>${item.book} — Chapter ${i}</h3>
-          <p>Open the guided study path.</p>
-        </button>`;
-    }
-    chapterGrid.innerHTML = html;
-    booksSection.classList.add("section-hidden");
-    chaptersSection.classList.remove("section-hidden");
-    studySection.classList.add("section-hidden");
-    chaptersSection.scrollIntoView({behavior:"smooth"});
-  };
+CHAPTER TITLE
+Subject
+Class
+Estimated study time
+Progress
 
-  window.openChapter = function(number){
-    state.chapter = number;
-    state.resource = "syllabus";
-    state.score = 0;
-    state.answered = 0;
+Then:
 
-    el("studyCrumb").textContent = `CLASS 6 • ${state.subject} • ${state.book}`;
-    el("chapterTitle").textContent = `Chapter ${number}`;
-    renderResources();
-    renderContent();
+START STUDY 🚀
 
-    chaptersSection.classList.add("section-hidden");
-    studySection.classList.remove("section-hidden");
-    studySection.scrollIntoView({behavior:"smooth"});
-  };
+After clicking Start Study, guide the student through:
 
-  window.openResource = function(key){
-    state.resource = key;
-    state.score = 0;
-    state.answered = 0;
-    renderResources();
-    renderContent();
-  };
+STEP 1
+Understand the concept
 
-  function renderResources(){
-    resourceGrid.innerHTML = resourceList.map(([icon,name,key]) => `
-      <button type="button" class="resource-card ${state.resource===key ? "active":""}" onclick="openResource('${key}')">
-        <div class="ri">${icon}</div>
-        <h3>${name}</h3>
-        <p>Open ${name}</p>
-      </button>
-    `).join("");
-  }
+STEP 2
+Watch the selected lesson
 
-  function renderContent(){
-    const title = `${state.book} — Chapter ${state.chapter}`;
-    let html = "";
+STEP 3
+Read smart notes
 
-    if(state.resource==="syllabus"){
-      html = `
-        <h2>📚 Syllabus</h2>
-        <div class="note"><strong>Class 6 • 2026–27</strong><br>${title}</div>
-        <h3>Study focus</h3>
-        <ul>
-          <li>Understand the main ideas before memorising.</li>
-          <li>Learn important terms, examples, activities and connections.</li>
-          <li>Complete the relevant textbook practice.</li>
-          <li>Revise and self-check before moving to the next chapter.</li>
-        </ul>
-      `;
-    }
+STEP 4
+Practice important questions
 
-    if(state.resource==="notes"){
-      html = `
-        <h2>🧠 Concept Notes</h2>
-        <div class="note"><strong>Start Here</strong><br>Read the chapter introduction and write its central idea in one sentence.</div>
-        <div class="note"><strong>Key Concepts</strong><br>Make a short list of the main ideas, definitions, examples and activities.</div>
-        <div class="note"><strong>My Notes</strong><br>Rewrite the important points in your own words.</div>
-        <div class="note"><strong>Exam Box</strong><br>Mark the facts, vocabulary, diagrams, formulas or ideas that need revision.</div>
-      `;
-    }
+STEP 5
+Take the quiz
 
-    if(state.resource==="video"){
-      const searchUrl = "https://www.youtube.com/results?search_query=" +
-        encodeURIComponent(`NCERT Class 6 ${state.subject} ${state.book} Chapter ${state.chapter}`);
-      html = `
-        <h2>🎥 Selected Video</h2>
-        <p>Use one reviewed lesson instead of opening the general YouTube feed.</p>
-        <a class="video" target="_blank" rel="noopener" href="${searchUrl}">▶ Find Chapter Video</a>
-        <div class="note">For the finished site, replace this search link with one manually reviewed, legitimate video URL.</div>
-      `;
-    }
+STEP 6
+Rapid revision
 
-    if(state.resource==="qa"){
-      html = `
-        <h2>❓ Question Answers</h2>
-        ${[
-          "What is the central idea of this chapter?",
-          "Write three important points you learned.",
-          "Which example/activity helps you understand the topic?",
-          "What question would you ask your teacher?"
-        ].map((q,i)=>`
-          <div class="note">
-            <strong>Q${i+1}. ${q}</strong><br><br>
-            <b>Answer:</b> Add the chapter-specific answer from the current NCERT text and classroom learning.
-          </div>`).join("")}
-      `;
-    }
+STEP 7
+NCERT practice
 
-    if(state.resource==="one"){
-      html = `
-        <h2>⚡ One Shot</h2>
-        <ol>
-          <li>Read the chapter overview.</li>
-          <li>Understand the key ideas.</li>
-          <li>Review examples and activities.</li>
-          <li>Practise textbook questions.</li>
-          <li>Take the quiz.</li>
-        </ol>
-      `;
-    }
+STEP 8
+Mark chapter complete ✅
 
-    if(state.resource==="practice"){
-      html = `
-        <h2>🎯 Practice</h2>
-        <ol>
-          <li>Explain the main idea in your own words.</li>
-          <li>Write five key terms/facts.</li>
-          <li>Complete the relevant textbook exercise.</li>
-          <li>Solve one application-based question.</li>
-          <li>Check mistakes and revise.</li>
-        </ol>
-      `;
-    }
+FOCUS MODE
+Create a distraction-free “Focus Mode”.
 
-    if(state.resource==="rapid"){
-      html = `
-        <h2>🔄 Rapid Revision</h2>
-        <ul>
-          <li>⭐ Central idea</li>
-          <li>⭐ Key definitions / vocabulary</li>
-          <li>⭐ Important examples / activities</li>
-          <li>⭐ Important diagram / formula / fact where applicable</li>
-          <li>⭐ Textbook practice</li>
-          <li>⭐ Final self-test</li>
-        </ul>
-      `;
-    }
+When Focus Mode starts:
+- Hide unnecessary navigation.
+- Do not show social feeds.
+- Do not show unrelated content.
+- Do not embed a full YouTube homepage/feed.
+- Keep only the current chapter and current learning task.
+- Show a progress indicator such as:
+  3 of 8 steps complete.
+- Provide Previous / Next.
+- Provide Exit Focus Mode.
+- Remember the student’s last position locally.
 
-    if(state.resource==="quiz"){
-      const questions = [
-        {q:"What should you do first?",o:["Understand the concept","Skip the chapter","Only memorise","Open Shorts"],a:0},
-        {q:"Which resource is for quick final revision?",o:["Rapid Revision","Home","Footer","About"],a:0},
-        {q:"What should you practise?",o:["Only videos","Textbook questions and activities","Only headings","Nothing"],a:1},
-        {q:"What is the goal of Focus Mode?",o:["More scrolling","Distraction-free study","More recommendations","Social media"],a:1}
-      ];
-      window.activeQuiz = questions;
+VIDEO STRATEGY
 
-      html = `<h2>🧩 Chapter Quiz</h2>`;
-      questions.forEach((q,i)=>{
-        html += `<div class="quiz-question"><b>${i+1}. ${q.q}</b></div>`;
-        q.o.forEach((option,j)=>{
-          html += `<button type="button" class="option" onclick="answerQuiz(${i},${j},this)">${option}</button>`;
-        });
-      });
-      html += `<div class="score" id="quizScore"></div>`;
-    }
+Video is a support resource, not the main website.
 
-    resourceContent.innerHTML = html;
-  }
+For each chapter:
+- Provide ONE primary recommended video.
+- Optionally provide 2–3 alternative videos.
+- Show teacher/channel name.
+- Show approximate duration if available.
+- Show why the video is useful.
+- Prefer official/public links or permitted embeds.
+- Do not download, copy, re-upload or host copyrighted third-party videos without permission.
+- Never send students to a general YouTube homepage when a specific chapter video can be linked.
+- Avoid unnecessary recommendation loops.
 
-  window.answerQuiz = function(questionIndex,choice,button){
-    const questions = window.activeQuiz || [];
-    if(!questions[questionIndex]) return;
+NOTES
 
-    const parent = button.parentElement;
-    parent.querySelectorAll(".option").forEach(b => b.disabled = true);
+Notes must be:
+- Short
+- Clear
+- Student-friendly
+- Chapter-specific
+- Structured for revision
 
-    if(choice===questions[questionIndex].a){
-      button.classList.add("correct");
-      state.score++;
-    }else{
-      button.classList.add("wrong");
-      const opts = parent.querySelectorAll(".option");
-      if(opts[questions[questionIndex].a]) opts[questions[questionIndex].a].classList.add("correct");
-    }
+Recommended note structure:
 
-    state.answered++;
-    if(state.answered===questions.length){
-      const scoreBox = el("quizScore");
-      if(scoreBox) scoreBox.textContent = `Your Score: ${state.score} / ${questions.length}`;
-    }
-  };
+CHAPTER OVERVIEW
+KEY CONCEPTS
+IMPORTANT DEFINITIONS
+EXAMPLES
+FORMULAS / FACTS where applicable
+DIAGRAMS where applicable
+COMMON MISTAKES
+EXAM/TEST POINTS
+QUICK RECAP
 
-  renderBooks();
-})();
-</script>
-</body>
-</html>
+Do not copy entire textbooks into the site.
+Create original explanations and summaries where appropriate and respect copyright.
+
+QUESTION ANSWERS
+
+For every chapter provide:
+- Important NCERT-aligned questions
+- Short answer questions
+- Long answer questions where relevant
+- Conceptual questions
+- Application-based questions
+- Exam-style practice
+
+Clearly separate:
+QUESTION
+ANSWER
+KEY POINTS
+
+QUIZ
+
+Create an interactive chapter quiz.
+
+Requirements:
+- 5–10 questions
+- Multiple-choice
+- Clear correct/incorrect feedback
+- Score at the end
+- Retry button
+- Explanation after answering
+- Do not reveal answers before the student attempts
+- Track best score locally
+- Avoid repeated questions
+
+ONE SHOT
+
+Create a compact complete-chapter revision page.
+
+It should answer:
+“What do I need to remember if I only have 15–30 minutes?”
+
+RAPID REVISION
+
+Create an ultra-short revision sheet:
+- Key facts
+- Key definitions
+- Key formulas
+- Key concepts
+- Common mistakes
+- Important questions
+
+NCERT PRACTICE
+
+Provide:
+- Textbook-oriented exercises
+- Application questions
+- Practice sets
+- Self-check tasks
+
+Do not falsely claim that unofficial questions are exact NCERT questions.
+
+CLASS STRUCTURE
+
+Support:
+
+CLASS 6
+CLASS 7
+CLASS 8
+CLASS 9
+
+Use:
+
+Class
+→ Subject/Curricular Area
+→ NCERT Book
+→ Chapter/Theme
+→ Learning Resources
+
+Do not hard-code the site in a way that makes adding new books difficult.
+
+SEARCH
+
+Add a global search box:
+
+“Search class, subject, chapter or topic…”
+
+Search results should show:
+Class
+Subject
+Chapter
+Resource type
+
+Example:
+
+Search: “motion”
+
+Results:
+Class 9 → Science → Motion → Notes
+Class 9 → Science → Motion → Quiz
+Class 9 → Science → Motion → Video
+
+STUDENT DASHBOARD
+
+Create a simple optional student dashboard.
+
+Show:
+
+WELCOME BACK 👋
+
+Continue Learning
+Class
+Subject
+Chapter
+Progress
+
+Example:
+
+Class 9
+Science
+Chapter: ______
+Progress: 60%
+[Continue]
+
+Also show:
+Recently studied
+Completed chapters
+Quiz scores
+Study streak
+
+LOCAL-FIRST VERSION
+
+For the first version:
+- No paid services.
+- No complicated backend required.
+- Use localStorage where appropriate for progress.
+- The website should work as a static website.
+- It must be deployable on GitHub Pages.
+- Avoid requiring Supabase/Firebase unless a later phase specifically needs accounts or cloud sync.
+
+DESIGN
+
+The design should feel like a premium student app, not a school website.
+
+Visual direction:
+- Modern
+- Clean
+- Youthful
+- Attractive
+- Soft gradients
+- Rounded cards
+- Excellent typography
+- Plenty of whitespace
+- Subtle animation
+- Strong visual hierarchy
+- Mobile-first
+- Fast-loading
+
+Do NOT make it:
+- childish
+- cluttered
+- overly colorful
+- filled with unnecessary animations
+- similar to a generic coaching website
+
+HOME PAGE
+
+The first screen should contain:
+
+ADITYA LEARNS
+Study. Don’t Scroll.
+
+Short explanation
+
+[ 🚀 GET STARTED ]
+
+Then:
+
+What are you studying today?
+
+CLASS 6
+CLASS 7
+CLASS 8
+CLASS 9
+
+Do not overwhelm the student with dozens of links on the homepage.
+
+“Get Started” should lead directly into the student journey.
+
+DAILY STUDY MODE
+
+Add:
+
+🎯 STUDY NOW
+
+Ask:
+
+“How much time do you have?”
+
+15 MIN
+30 MIN
+45 MIN
+60 MIN
+
+Then generate a simple study plan from available chapter resources.
+
+Example:
+
+30 MIN STUDY PLAN
+
+0–5 min
+Concept Notes
+
+5–20 min
+Selected Video
+
+20–25 min
+Questions
+
+25–30 min
+Mini Quiz
+
+✅ Complete
+
+EXAM MODE
+
+Add a future-ready Exam Mode.
+
+Student enters exam date.
+
+Generate a revision plan using:
+Learn
+Practice
+Quiz
+Rapid Revision
+
+Do not make medical or academic outcome guarantees.
+
+PROGRESS SYSTEM
+
+Track locally:
+- chapter started
+- chapter completed
+- current step
+- quiz score
+- best score
+- last visited chapter
+- study streak
+
+ACCESSIBILITY
+- readable font sizes
+- sufficient contrast
+- keyboard-friendly controls
+- clear button labels
+- mobile responsive
+- simple Hindi/English-friendly language where appropriate
+
+TECHNICAL REQUIREMENTS
+
+For Version 1:
+- Use clean HTML5
+- CSS
+- Vanilla JavaScript
+- Prefer a single index.html for the prototype if practical
+- No framework requirement
+- No paid APIs
+- No login requirement
+- No backend requirement
+- Use modular JavaScript/data structures so the project can later be split into files
+
+DATA ARCHITECTURE
+
+Do NOT duplicate the entire interface for every class.
+
+Create a reusable data structure similar to:
+
+classes
+  → subjects
+    → books
+      → chapters
+        → syllabus
+        → notes
+        → video
+        → questions
+        → quiz
+        → oneShot
+        → rapidRevision
+        → practice
+
+This must allow a content editor to add another chapter without rewriting the UI.
+
+CONTENT SAFETY / ACCURACY
+
+Never invent:
+- NCERT chapters
+- official syllabus claims
+- teacher affiliations
+- video ownership
+- textbook titles
+
+When content is missing:
+show:
+“Content coming soon.”
+
+Provide source attribution where appropriate.
+
+FUTURE ADMIN PANEL
+
+Design the data structure so a future Admin Panel can manage:
+
+Classes
+Subjects
+Books
+Chapters
+Notes
+Videos
+Questions
+Quiz Questions
+Revision Content
+
+The student should never need to edit code.
+
+FUTURE FEATURES
+
+Keep architecture ready for:
+- user accounts
+- cloud progress
+- parent dashboard
+- teacher dashboard
+- admin CMS
+- bookmarks
+- downloadable notes
+- performance analytics
+- notifications
+- exam planner
+- AI study assistant
+
+But DO NOT build unnecessary backend complexity in Version 1.
+
+FINAL UX PRINCIPLE
+
+The website should always answer the student’s next question:
+
+“What should I do now?”
+
+At every stage provide a clear next action.
+
+Example:
+
+READ NOTES
+↓
+WATCH VIDEO
+↓
+PRACTICE
+↓
+QUIZ
+↓
+RAPID REVISION
+↓
+COMPLETE ✅
+
+The student should never feel lost.
+
+FINAL DELIVERABLE
+
+Produce a polished, working, mobile-responsive Aditya Learns website with the complete navigation flow:
+
+Home
+→ Class
+→ Subject
+→ Book
+→ Chapter
+→ Start Study
+→ Syllabus
+→ Notes
+→ Video
+→ Question Answers
+→ Quiz
+→ One Shot
+→ NCERT Practice
+→ Rapid Revision
+→ Complete
+
+Before declaring the project complete:
+1. Test every navigation button.
+2. Test Class 6–9 selection.
+3. Test subject selection.
+4. Test chapter selection.
+5. Test every resource button.
+6. Test quiz scoring.
+7. Test mobile layout.
+8. Test refresh/reload.
+9. Test GitHub Pages compatibility.
+10. Make sure there are no placeholder “demo” buttons pretending to contain real content.
+11. Clearly label any content that is not yet populated.
+12. Keep the interface simple enough that a student can start studying in under 30 seconds.
