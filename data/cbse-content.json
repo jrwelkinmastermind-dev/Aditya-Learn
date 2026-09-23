@@ -1,0 +1,781 @@
+{
+  "meta": {
+    "name": "Aditya Learns Original Study Content",
+    "board": "CBSE",
+    "session": "2026-27",
+    "policy": "Original explanations and practice questions. Do not present as verbatim NCERT text.",
+    "video_policy": "Store or display exact approved video URLs; do not download or re-host third-party videos."
+  },
+  "packs": {
+    "cbse-9-science-describing-motion-around-us": {
+      "class": "9",
+      "subject": "Science",
+      "chapter": "Describing Motion Around Us",
+      "book": "Exploration",
+      "source": "https://ncert.nic.in/textbook.php",
+      "video_url": "https://www.youtube.com/results?search_query=CBSE+Class+9+Science+Describing+Motion+Around+Us",
+      "notes": [
+        [
+          "Chapter Overview",
+          "Motion is described by how an object's position changes with time relative to a reference point."
+        ],
+        [
+          "Reference Point",
+          "An object is considered moving when its position changes with time relative to a chosen observer or reference point."
+        ],
+        [
+          "Distance",
+          "Distance is the total length of the path travelled. It is a scalar quantity and is never negative."
+        ],
+        [
+          "Displacement",
+          "Displacement is the directed change from initial to final position. It depends only on the start and end positions."
+        ],
+        [
+          "Speed",
+          "Average speed = total distance ÷ total time. Speed tells how fast an object covers distance, without direction."
+        ],
+        [
+          "Velocity",
+          "Average velocity = displacement ÷ time. Velocity includes direction, so it can be positive, negative or zero according to the chosen direction."
+        ],
+        [
+          "Acceleration",
+          "Acceleration measures change in velocity with time. a = (v-u)/t. A negative sign indicates direction relative to the chosen positive direction."
+        ],
+        [
+          "Graphs",
+          "The slope of a position-time graph gives velocity. The slope of a velocity-time graph gives acceleration. The area under a velocity-time graph gives displacement for the interval."
+        ],
+        [
+          "Constant Acceleration",
+          "For straight-line motion with constant acceleration: v=u+at, s=ut+½at², and v²=u²+2as."
+        ],
+        [
+          "Units",
+          "Use SI units where possible: metre (m), second (s), metre per second (m/s), metre per second squared (m/s²)."
+        ]
+      ],
+      "qa": [
+        [
+          "What is motion?",
+          "Motion is a change in position with time relative to a reference point."
+        ],
+        [
+          "Why is a reference point needed?",
+          "Rest and motion are described relative to an observer or reference point."
+        ],
+        [
+          "Differentiate distance and displacement.",
+          "Distance is total path length; displacement is the directed change from initial to final position."
+        ],
+        [
+          "Define average speed.",
+          "Average speed is total distance divided by total time."
+        ],
+        [
+          "Define average velocity.",
+          "Average velocity is displacement divided by total time."
+        ],
+        [
+          "What is acceleration?",
+          "Acceleration is the rate of change of velocity with time."
+        ],
+        [
+          "Can displacement be zero when distance is not zero?",
+          "Yes. On returning to the starting point, displacement is zero while distance travelled is non-zero."
+        ],
+        [
+          "What does the slope of a position-time graph represent?",
+          "Velocity."
+        ],
+        [
+          "What does the slope of a velocity-time graph represent?",
+          "Acceleration."
+        ],
+        [
+          "What does the area under a velocity-time graph represent?",
+          "Displacement over the relevant time interval."
+        ]
+      ],
+      "quiz": [
+        [
+          "Which quantity includes direction?",
+          [
+            "Speed",
+            "Distance",
+            "Displacement",
+            "Time"
+          ],
+          2
+        ],
+        [
+          "A runner returns to the starting point. What is true?",
+          [
+            "Distance is zero",
+            "Displacement is zero",
+            "Time is zero",
+            "Speed must be zero"
+          ],
+          1
+        ],
+        [
+          "Average speed equals:",
+          [
+            "Displacement ÷ time",
+            "Total distance ÷ total time",
+            "Velocity × time",
+            "Distance × time"
+          ],
+          1
+        ],
+        [
+          "SI unit of acceleration:",
+          [
+            "m",
+            "m/s",
+            "m/s²",
+            "km/h"
+          ],
+          2
+        ],
+        [
+          "Slope of a position-time graph gives:",
+          [
+            "Velocity",
+            "Acceleration",
+            "Distance",
+            "Mass"
+          ],
+          0
+        ],
+        [
+          "Slope of a velocity-time graph gives:",
+          [
+            "Distance",
+            "Position",
+            "Acceleration",
+            "Time"
+          ],
+          2
+        ],
+        [
+          "Which equation assumes constant acceleration?",
+          [
+            "v=u+at",
+            "v=u/t",
+            "s=a/t",
+            "u=st"
+          ],
+          0
+        ],
+        [
+          "Which is a scalar quantity?",
+          [
+            "Velocity",
+            "Displacement",
+            "Acceleration",
+            "Speed"
+          ],
+          3
+        ],
+        [
+          "If an object makes a round trip, displacement can be:",
+          [
+            "Greater than distance",
+            "Zero",
+            "Always negative",
+            "Equal to time"
+          ],
+          1
+        ],
+        [
+          "What should be done before applying a formula?",
+          [
+            "Ignore units",
+            "Check units and assumptions",
+            "Change the question",
+            "Guess the answer"
+          ],
+          1
+        ],
+        [
+          "Uniform straight-line motion means:",
+          [
+            "Equal distances in equal time intervals",
+            "No movement",
+            "Increasing mass",
+            "Circular motion only"
+          ],
+          0
+        ],
+        [
+          "Average velocity uses:",
+          [
+            "Total distance",
+            "Displacement",
+            "Mass",
+            "Temperature"
+          ],
+          1
+        ],
+        [
+          "A point returning to its start has final position:",
+          [
+            "Different from initial",
+            "Same as initial",
+            "Always zero",
+            "Undefined"
+          ],
+          1
+        ],
+        [
+          "For v²=u²+2as, acceleration should be:",
+          [
+            "Constant",
+            "Random",
+            "Always zero",
+            "Unknown"
+          ],
+          0
+        ],
+        [
+          "A good first step in a numerical problem is:",
+          [
+            "Write known quantities",
+            "Guess the result",
+            "Skip units",
+            "Open unrelated content"
+          ],
+          0
+        ]
+      ],
+      "revision": [
+        "Motion is relative to a reference point.",
+        "Distance = total path length.",
+        "Displacement = directed initial-to-final change.",
+        "Average speed = distance/time.",
+        "Average velocity = displacement/time.",
+        "Acceleration = change in velocity/time.",
+        "Position-time slope → velocity.",
+        "Velocity-time slope → acceleration.",
+        "Velocity-time area → displacement.",
+        "Check units before calculation."
+      ],
+      "exam_tip": "Write known values, convert units, choose the equation, substitute carefully, then check sign and unit.",
+      "video_note": "For now the button uses a chapter-specific YouTube search. Replace it with one exact reviewed video URL before publishing the student version."
+    },
+    "cbse-9-mathematics-orienting-yourself": {
+      "class": "9",
+      "subject": "Mathematics",
+      "chapter": "Orienting Yourself: The Use of Coordinates",
+      "book": "Ganita Manjari",
+      "source": "https://ncert.nic.in/textbook.php",
+      "video_url": "https://www.youtube.com/results?search_query=CBSE+Class+9+Mathematics+Orienting+Yourself+Use+of+Coordinates",
+      "notes": [
+        [
+          "Chapter Overview",
+          "Coordinates give a precise way to describe the position of a point on a plane."
+        ],
+        [
+          "Coordinate Plane",
+          "Two perpendicular number lines form the coordinate plane: the horizontal x-axis and vertical y-axis."
+        ],
+        [
+          "Origin",
+          "The point where the two axes meet is the origin, written as (0,0)."
+        ],
+        [
+          "Ordered Pair",
+          "A point is written (x,y). The x-coordinate is read first and the y-coordinate second."
+        ],
+        [
+          "Axes",
+          "A point on the x-axis has y=0. A point on the y-axis has x=0."
+        ],
+        [
+          "Signs",
+          "Positive x means right, negative x means left; positive y means up, negative y means down."
+        ],
+        [
+          "Quadrants",
+          "The axes divide the plane into four quadrants. The signs of x and y help identify the quadrant."
+        ],
+        [
+          "Plotting",
+          "To plot a point, start at the origin, move along x first and then along y."
+        ],
+        [
+          "Reading Coordinates",
+          "Always read coordinates in the fixed order (x,y); swapping the numbers generally changes the point."
+        ],
+        [
+          "Common Mistake",
+          "Do not reverse x and y and do not ignore the negative sign."
+        ]
+      ],
+      "qa": [
+        [
+          "What is the origin?",
+          "The origin is the intersection of the x-axis and y-axis, written (0,0)."
+        ],
+        [
+          "What is an ordered pair?",
+          "An ordered pair (x,y) is a fixed-order pair of numbers used to locate a point."
+        ],
+        [
+          "Which coordinate is read first?",
+          "The x-coordinate is read first."
+        ],
+        [
+          "When does a point lie on the x-axis?",
+          "When its y-coordinate is zero."
+        ],
+        [
+          "When does a point lie on the y-axis?",
+          "When its x-coordinate is zero."
+        ],
+        [
+          "How do you plot (3,-2)?",
+          "Move 3 units right from the origin, then 2 units down."
+        ],
+        [
+          "Why is order important?",
+          "Because (a,b) and (b,a) normally represent different points."
+        ],
+        [
+          "What does a negative x-coordinate mean?",
+          "The point lies to the left of the y-axis."
+        ],
+        [
+          "What does a positive y-coordinate mean?",
+          "The point lies above the x-axis."
+        ],
+        [
+          "How many quadrants are formed by the axes?",
+          "Four."
+        ]
+      ],
+      "quiz": [
+        [
+          "The first coordinate in (x,y) is:",
+          [
+            "y",
+            "x",
+            "origin",
+            "quadrant"
+          ],
+          1
+        ],
+        [
+          "The origin is:",
+          [
+            "(1,1)",
+            "(0,1)",
+            "(0,0)",
+            "(-1,0)"
+          ],
+          2
+        ],
+        [
+          "A point on the x-axis has:",
+          [
+            "x=0",
+            "y=0",
+            "x=y",
+            "both negative"
+          ],
+          1
+        ],
+        [
+          "A point on the y-axis has:",
+          [
+            "x=0",
+            "y=0",
+            "x=1",
+            "y=1"
+          ],
+          0
+        ],
+        [
+          "Which is an ordered pair?",
+          [
+            "3,5",
+            "(3,5)",
+            "3:5",
+            "3-5"
+          ],
+          1
+        ],
+        [
+          "In (-4,2), the x-coordinate is:",
+          [
+            "2",
+            "-4",
+            "4",
+            "0"
+          ],
+          1
+        ],
+        [
+          "In (5,-3), the y-coordinate is:",
+          [
+            "5",
+            "-3",
+            "3",
+            "0"
+          ],
+          1
+        ],
+        [
+          "What does x<0 and y>0 mean?",
+          [
+            "Left and above",
+            "Right and below",
+            "On x-axis",
+            "At origin"
+          ],
+          0
+        ],
+        [
+          "Which habit prevents coordinate mistakes?",
+          [
+            "Read y then x",
+            "Read x then y",
+            "Ignore signs",
+            "Skip axes"
+          ],
+          1
+        ],
+        [
+          "(0,6) lies on:",
+          [
+            "x-axis",
+            "y-axis",
+            "neither",
+            "both"
+          ],
+          1
+        ],
+        [
+          "(7,0) lies on:",
+          [
+            "x-axis",
+            "y-axis",
+            "neither",
+            "both"
+          ],
+          0
+        ],
+        [
+          "How do you plot (-2,-3)?",
+          [
+            "2 right, 3 up",
+            "2 left, 3 down",
+            "3 left, 2 up",
+            "3 right, 2 down"
+          ],
+          1
+        ],
+        [
+          "The axes divide the plane into:",
+          [
+            "2 quadrants",
+            "3 quadrants",
+            "4 quadrants",
+            "8 quadrants"
+          ],
+          2
+        ],
+        [
+          "Coordinates are best thought of as:",
+          [
+            "A point's address",
+            "A mass",
+            "A time",
+            "A colour"
+          ],
+          0
+        ],
+        [
+          "What must you preserve when reading (x,y)?",
+          [
+            "The order",
+            "Only the first sign",
+            "Only the second number",
+            "Nothing"
+          ],
+          0
+        ]
+      ],
+      "revision": [
+        "Coordinates are written (x,y).",
+        "Origin = (0,0).",
+        "x-axis: y=0.",
+        "y-axis: x=0.",
+        "Read x first, then y.",
+        "Negative x means left.",
+        "Negative y means down.",
+        "Axes form four quadrants."
+      ],
+      "exam_tip": "Say 'x first, y second' before plotting any point.",
+      "video_note": "A reviewed exact lesson URL can be attached later; the current link is chapter-specific search only."
+    },
+    "cbse-6-science-wonderful-world": {
+      "class": "6",
+      "subject": "Science",
+      "chapter": "The Wonderful World of Science",
+      "book": "Curiosity",
+      "source": "https://ncert.nic.in/textbook.php",
+      "video_url": "https://www.youtube.com/results?search_query=CBSE+Class+6+Science+The+Wonderful+World+of+Science",
+      "notes": [
+        [
+          "Chapter Overview",
+          "Science begins with curiosity and uses careful observation, questions, evidence and reasoning to understand the world."
+        ],
+        [
+          "Observation",
+          "Observe carefully using senses and suitable tools; record what you actually notice."
+        ],
+        [
+          "Questions",
+          "A useful investigation begins with a clear question that can be explored using observations or measurements."
+        ],
+        [
+          "Evidence",
+          "Evidence is information collected from observations, measurements or investigations that supports or challenges an idea."
+        ],
+        [
+          "Fair Test",
+          "Change one main factor while keeping other important conditions as similar as practical."
+        ],
+        [
+          "Measurement",
+          "Use an appropriate instrument and unit when a quantity can be measured."
+        ],
+        [
+          "Observation vs Explanation",
+          "'The leaf is green' is an observation; 'the leaf is green because...' is an explanation that needs evidence."
+        ],
+        [
+          "Recording Data",
+          "Tables, labelled diagrams and simple lists help make observations easier to compare."
+        ],
+        [
+          "Conclusion",
+          "A conclusion should match the evidence collected rather than simply repeat a guess."
+        ],
+        [
+          "Science in Daily Life",
+          "Scientific thinking helps explain familiar phenomena in cooking, weather, plants, animals, materials and technology."
+        ]
+      ],
+      "qa": [
+        [
+          "What is observation?",
+          "Observation is careful noticing and recording of information using senses and suitable tools."
+        ],
+        [
+          "Why do scientists ask questions?",
+          "Questions define what needs to be investigated and what evidence should be collected."
+        ],
+        [
+          "What is evidence?",
+          "Evidence is information gathered through observations, measurements or tests."
+        ],
+        [
+          "What is a fair test?",
+          "A comparison in which important conditions are kept controlled while the main factor under study is changed."
+        ],
+        [
+          "Why record measurements?",
+          "Recorded measurements allow comparison, analysis and checking later."
+        ],
+        [
+          "Give an example of an observation.",
+          "Example: The water level in a beaker changed from 100 mL to 80 mL."
+        ],
+        [
+          "Why repeat observations?",
+          "Repeating can make evidence more reliable and help identify accidental errors."
+        ],
+        [
+          "What should a conclusion be based on?",
+          "The evidence collected during the investigation."
+        ],
+        [
+          "Why is a ruler useful?",
+          "It provides a standard way to measure length."
+        ],
+        [
+          "What is a testable question?",
+          "A question that can be investigated through observation, measurement or a fair test."
+        ]
+      ],
+      "quiz": [
+        [
+          "Science begins with:",
+          [
+            "Curiosity and questions",
+            "Guessing only",
+            "Memorising titles",
+            "Avoiding tests"
+          ],
+          0
+        ],
+        [
+          "Which is a direct observation?",
+          [
+            "The leaf is green",
+            "The plant is happy",
+            "The plant likes music",
+            "The leaf must be healthy"
+          ],
+          0
+        ],
+        [
+          "Evidence is:",
+          [
+            "A rumour",
+            "Information from observations or tests",
+            "A feeling",
+            "A guess"
+          ],
+          1
+        ],
+        [
+          "A fair test usually changes:",
+          [
+            "Everything at once",
+            "One main factor",
+            "No factor",
+            "Only the answer"
+          ],
+          1
+        ],
+        [
+          "Why record data?",
+          [
+            "To decorate",
+            "To compare and analyse",
+            "To hide results",
+            "To avoid evidence"
+          ],
+          1
+        ],
+        [
+          "Which is most testable?",
+          [
+            "Is this plant beautiful?",
+            "How does water amount affect plant height?",
+            "Is science fun?",
+            "Which colour is nicest?"
+          ],
+          1
+        ],
+        [
+          "Which can improve length measurement?",
+          [
+            "Ruler",
+            "Guess",
+            "Opinion",
+            "Story"
+          ],
+          0
+        ],
+        [
+          "A conclusion should be based on:",
+          [
+            "Evidence",
+            "Popularity",
+            "Guesswork",
+            "A random answer"
+          ],
+          0
+        ],
+        [
+          "Which is not a good scientific habit?",
+          [
+            "Careful observation",
+            "Recording data",
+            "Changing many variables without control",
+            "Asking questions"
+          ],
+          2
+        ],
+        [
+          "Science helps explain:",
+          [
+            "Only laboratories",
+            "Natural and everyday phenomena",
+            "Only exams",
+            "Only computers"
+          ],
+          1
+        ],
+        [
+          "Why repeat observations?",
+          [
+            "To make evidence more reliable",
+            "To waste time",
+            "To change results",
+            "To avoid recording"
+          ],
+          0
+        ],
+        [
+          "Which is an explanation rather than an observation?",
+          [
+            "The glass is wet",
+            "The thermometer reads 30°C",
+            "Water vapour condensed on the cold glass",
+            "The surface is shiny"
+          ],
+          2
+        ],
+        [
+          "Before an investigation, you should:",
+          [
+            "Plan the question and method",
+            "Choose the result",
+            "Hide data",
+            "Skip measurement"
+          ],
+          0
+        ],
+        [
+          "A useful measurement includes:",
+          [
+            "A suitable unit",
+            "Only a guess",
+            "No number",
+            "A colour"
+          ],
+          0
+        ],
+        [
+          "A good student scientist is:",
+          [
+            "Curious and careful",
+            "Certain without evidence",
+            "Afraid of questions",
+            "Unwilling to test"
+          ],
+          0
+        ]
+      ],
+      "revision": [
+        "Science starts with curiosity.",
+        "Observe before explaining.",
+        "Ask clear questions.",
+        "Use evidence.",
+        "Keep a fair test when comparing.",
+        "Measure with suitable tools and units.",
+        "Record data clearly.",
+        "Base conclusions on evidence."
+      ],
+      "exam_tip": "In a science answer, separate what you observed from what you inferred.",
+      "video_note": "Use an exact approved video URL before publishing; the starter currently points to a chapter-specific search."
+    }
+  }
+}
