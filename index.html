@@ -1,44 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aditya Learns | Study. Don't Scroll.</title>
 <style>
 :root{--p:#6855e8;--p2:#a13fb1;--pink:#e83f93;--ink:#142033;--muted:#687386;--bg:#f5f7fb;--card:#fff;--line:#e5e8f0;--green:#159b5a}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg)}button,input{font:inherit}button{cursor:pointer}
-nav{position:sticky;top:0;z-index:10;padding:15px 5%;background:linear-gradient(105deg,var(--p),var(--p2));color:#fff;display:flex;justify-content:space-between;align-items:center;box-shadow:0 5px 20px #0002}.logo{font-size:24px;font-weight:900}.logo span{color:#ffd83d}.navbtn{border:0;background:transparent;color:#fff;font-weight:800;margin-left:18px}
-.hero{text-align:center;padding:65px 20px 70px;background:linear-gradient(135deg,#eeeaff,#eafaff)}.badge{display:inline-block;background:#fff;color:var(--p);font-weight:800;padding:9px 17px;border-radius:30px;box-shadow:0 5px 20px #0001}.hero h1{font-size:clamp(44px,8vw,78px);margin:18px 0;background:linear-gradient(90deg,var(--p),var(--pink));-webkit-background-clip:text;color:transparent}.hero p{max-width:820px;margin:auto;color:#596477;font-size:18px;line-height:1.6}.cta{margin-top:24px;border:0;background:var(--ink);color:#fff;padding:14px 24px;border-radius:12px;font-weight:900}
-.wrap{max-width:1200px;margin:auto;padding:42px 20px}.title{text-align:center;margin-bottom:28px}.title h2{font-size:35px;margin:4px 0 8px}.title p{color:var(--muted)}.search{display:flex;max-width:700px;margin:0 auto 30px}.search input{flex:1;padding:15px;border:1px solid var(--line);border-radius:14px 0 0 14px;outline:none}.search button{border:0;background:var(--p);color:#fff;padding:0 22px;border-radius:0 14px 14px 0}.grid{display:grid;gap:18px}.classes{grid-template-columns:repeat(4,1fr)}.subjects{grid-template-columns:repeat(3,1fr)}.chapters{grid-template-columns:repeat(3,1fr)}.resources{grid-template-columns:repeat(4,1fr)}
-.card,.resource{background:#fff;border:0;border-radius:21px;padding:25px;box-shadow:0 8px 28px #0000000d;transition:.2s;text-align:left}.card:hover,.resource:hover{transform:translateY(-4px);box-shadow:0 14px 35px #0002}.class{text-align:center}.class .icon{font-size:46px}.card h3,.resource h3{margin:9px 0 5px}.card p,.resource p{margin:0;color:var(--muted);line-height:1.5}.icon{font-size:38px}.back{border:0;background:#e9ecf4;padding:10px 15px;border-radius:11px;font-weight:800;margin-bottom:20px}.crumb{color:var(--p);font-weight:800;margin-bottom:8px}
-#portal{display:none}.resource{border:2px solid var(--line)}.resource.active{border-color:var(--p);background:#f7f5ff}.ri{font-size:28px}.content{background:#fff;border-radius:22px;padding:32px;margin-top:22px;box-shadow:0 8px 28px #0001;min-height:300px}.content h2{color:var(--p);margin-top:0}.note{padding:16px;margin:12px 0;background:#f7f5ff;border-left:5px solid var(--p);border-radius:10px;line-height:1.6}.video{display:inline-block;text-decoration:none;color:#fff;background:#e43e68;padding:13px 18px;border-radius:11px;font-weight:800}.option{display:block;width:100%;text-align:left;padding:13px;margin:8px 0;background:#fff;border:2px solid var(--line);border-radius:11px}.option.correct{background:#dcf8e9;border-color:var(--green)}.option.wrong{background:#ffe2e2;border-color:#d44}.score{font-size:20px;font-weight:900;margin-top:18px}footer{margin-top:50px;background:#0a0f1a;color:#fff;text-align:center;padding:38px}
-@media(max-width:900px){.classes,.subjects,.chapters,.resources{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){nav{flex-direction:column;gap:10px}.classes,.subjects,.chapters,.resources{grid-template-columns:1fr}.hero{padding:50px 18px}}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg)}button,input{font:inherit}button{cursor:pointer}
+nav{position:sticky;top:0;z-index:20;padding:15px 5%;background:linear-gradient(105deg,var(--p),var(--p2));color:white;display:flex;justify-content:space-between;align-items:center;box-shadow:0 5px 20px #0002}.logo{font-size:24px;font-weight:900}.logo span{color:#ffd83d}.navbtn{border:0;background:transparent;color:#fff;font-weight:800;margin-left:18px}
+.hero{padding:65px 20px;text-align:center;background:linear-gradient(135deg,#eeeaff,#eafaff)}.badge{display:inline-block;background:#fff;color:var(--p);font-weight:800;padding:9px 17px;border-radius:30px;box-shadow:0 5px 20px #0001}.hero h1{font-size:clamp(44px,8vw,78px);margin:18px 0;background:linear-gradient(90deg,var(--p),var(--pink));-webkit-background-clip:text;color:transparent}.hero p{max-width:820px;margin:auto;color:#596477;font-size:18px;line-height:1.65}
+.wrap{max-width:1200px;margin:auto;padding:42px 20px}.title{text-align:center;margin-bottom:28px}.title h2{font-size:34px;margin:5px 0}.title p{color:var(--muted)}
+.search{display:flex;max-width:700px;margin:0 auto 30px}.search input{flex:1;padding:15px;border:1px solid var(--line);border-radius:14px 0 0 14px;outline:none}.search button{border:0;background:var(--p);color:#fff;padding:0 22px;border-radius:0 14px 14px 0}.grid{display:grid;gap:18px}.classes{grid-template-columns:repeat(4,1fr)}.subjects{grid-template-columns:repeat(3,1fr)}.chapters{grid-template-columns:repeat(3,1fr)}.resources{grid-template-columns:repeat(4,1fr)}
+.card,.resource{background:#fff;border:1px solid #edf0f5;border-radius:21px;padding:24px;box-shadow:0 8px 28px #0000000c;transition:.18s;text-align:left}.card:hover,.resource:hover{transform:translateY(-4px);box-shadow:0 14px 35px #0002}.class{text-align:center}.class .icon{font-size:46px}.card h3,.resource h3{margin:9px 0 6px}.card p,.resource p{margin:0;color:var(--muted);line-height:1.5}.disabled{opacity:.55;cursor:not-allowed}
+#portal{display:none}.back{border:0;background:#e9ecf4;padding:10px 15px;border-radius:11px;font-weight:800;margin-bottom:20px}.crumb{color:var(--p);font-weight:800;margin-bottom:8px}.book{font-size:13px;color:var(--p);font-weight:800}
+.resource{border:2px solid #edf0f5}.resource.active{border-color:var(--p);background:#f7f5ff}.ri{font-size:29px}.coming{padding:22px;border-radius:18px;background:#fff7df;border:1px solid #f4df9e;color:#6b5414}
+.content{background:#fff;border-radius:22px;padding:32px;margin-top:22px;box-shadow:0 8px 28px #0001;min-height:300px}.content h2{color:var(--p);margin-top:0}.content h3{margin-top:26px}.note{padding:16px;margin:12px 0;background:#f7f5ff;border-left:5px solid var(--p);border-radius:10px;line-height:1.65}.note strong{color:var(--p)}
+.video{display:inline-block;text-decoration:none;color:#fff;background:#e43e68;padding:13px 18px;border-radius:11px;font-weight:800}.quizbar{display:flex;justify-content:space-between;gap:10px;padding:14px;background:#f2f4fa;border-radius:12px;font-weight:800}.qcard{padding:22px 0;border-bottom:1px solid var(--line)}.qno{color:var(--p);font-weight:900}.option{display:block;width:100%;text-align:left;padding:13px;margin:9px 0;background:#fff;border:2px solid #e3e6ed;border-radius:11px}.option.correct{background:#dcf8e9;border-color:var(--green)}.option.wrong{background:#ffe2e2;border-color:#d44}.option:disabled{cursor:default}.score{font-size:22px;font-weight:900;margin-top:18px}.next{border:0;background:var(--p);color:#fff;padding:13px 20px;border-radius:11px;font-weight:900;margin-top:18px}
+footer{margin-top:50px;background:#0a0f1a;color:#fff;text-align:center;padding:38px}@media(max-width:900px){.classes,.subjects,.chapters,.resources{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){nav{flex-direction:column;gap:10px}.classes,.subjects,.chapters,.resources{grid-template-columns:1fr}.hero{padding:52px 18px}.content{padding:22px}}
 </style>
 </head>
 <body>
-<nav><div class="logo">✨ ADITYA <span>LEARNS</span></div><div><button class="navbtn" onclick="home()">Home</button><button class="navbtn" onclick="document.getElementById('portal').scrollIntoView()">Subjects</button></div></nav>
-<section class="hero"><div class="badge">🎓 Classes 6–9 • Session 2026–27</div><h1>Study. Don't Scroll.</h1><p>A distraction-free learning space where you choose your class, subject and chapter, then follow one clear study path.</p><button class="cta" onclick="document.getElementById('classesSection').scrollIntoView({behavior:'smooth'})">🚀 Start Studying</button></section>
-<section class="wrap" id="classesSection"><div class="title"><h2>📚 Choose Your Class</h2><p>Select your class and start learning.</p></div><div class="search"><input id="searchBox" placeholder="Search class, subject or chapter..."><button onclick="searchSite()">Search</button></div><div class="grid classes" id="classGrid"></div></section>
-<section class="wrap" id="portal"><button class="back" onclick="home()">← Back to Classes</button>
-<div id="subjectPage"><div class="title"><div class="crumb" id="classCrumb"></div><h2>📖 Choose Your Subject</h2><p>Select a subject to see its chapters.</p></div><div class="grid subjects" id="subjectGrid"></div></div>
-<div id="chapterPage" style="display:none"><div class="title"><div class="crumb" id="subjectCrumb"></div><h2>📑 Choose Your Chapter</h2><p>Choose a chapter and start your guided study.</p></div><div class="grid chapters" id="chapterGrid"></div></div>
-<div id="resourcePage" style="display:none"><button class="back" onclick="backChapters()">← Back to Chapters</button><div class="title"><div class="crumb" id="resourceCrumb"></div><h2 id="chapterTitle"></h2><p>Follow the learning path: Syllabus → Notes → Video → Practice → Quiz → Revision.</p></div><div class="grid resources" id="resourceGrid"></div><div class="content" id="content"></div></div>
-</section><footer><h3>✨ ADITYA LEARNS</h3><p>Smart Learning Platform • Classes 6–9</p></footer>
+<nav><div class="logo">✨ ADITYA <span>LEARNS</span></div><div><button class="navbtn" onclick="goHome()">Classes</button><button class="navbtn" onclick="document.getElementById('portal').scrollIntoView()">Learning</button></div></nav>
+
+<section class="hero"><div class="badge">🎓 NCERT • Session 2026–27</div><h1>ADITYA LEARNS</h1><p>Study. Don't Scroll. Choose your class, open a chapter, learn the concept, practise, take a 15-question quiz and revise.</p></section>
+
+<section class="wrap" id="home">
+<div class="title"><h2>📚 What are you studying today?</h2><p>Pick your class. Your subjects and chapters are loaded separately for each class.</p></div>
+<div class="search"><input id="searchInput" placeholder="Search class, subject or chapter..."><button onclick="doSearch()">Search</button></div>
+<div class="grid classes" id="classGrid"></div>
+</section>
+
+<section class="wrap" id="portal">
+<button class="back" onclick="goHome()">← Back to Classes</button>
+<div id="subjectPage"><div class="title"><div class="crumb" id="classCrumb"></div><h2>📖 Choose Subject</h2><p>Different classes have different textbooks and chapter lists.</p></div><div class="grid subjects" id="subjectGrid"></div></div>
+<div id="chapterPage" style="display:none"><button class="back" onclick="backToSubjects()">← Back to Subjects</button><div class="title"><div class="crumb" id="subjectCrumb"></div><h2>📑 Choose Chapter</h2><p id="bookLine"></p></div><div class="grid chapters" id="chapterGrid"></div></div>
+<div id="resourcePage" style="display:none"><button class="back" onclick="backToChapters()">← Back to Chapters</button><div class="title"><div class="crumb" id="resourceCrumb"></div><h2 id="chapterTitle"></h2><p id="chapterMeta"></p></div><div class="grid resources" id="resourceGrid"></div><div class="content" id="content"></div></div>
+</section>
+
+<footer><h3>✨ ADITYA LEARNS</h3><p>Learn • Practice • Revise • Excel</p></footer>
+
 <script>
-const subjects=[['📐','Mathematics'],['🔬','Science'],['🌍','Social Science'],['📘','English'],['🇮🇳','Hindi'],['🪷','Sanskrit']];
-const chapters={Mathematics:['Knowing Our Numbers','Whole Numbers','Playing with Numbers','Basic Geometrical Ideas','Understanding Elementary Shapes','Integers','Fractions','Decimals','Data Handling','Mensuration','Algebra','Ratio and Proportion'],Science:['Food: Where Does It Come From?','Components of Food','Fibre to Fabric','Sorting Materials into Groups','Separation of Substances','Changes Around Us','Getting to Know Plants','Body Movements','The Living Organisms','Motion and Measurement','Light, Shadows and Reflections','Electricity and Circuits'],'Social Science':['The Earth in the Solar System','Globe: Latitudes and Longitudes','Maps','Major Domains of the Earth','Major Landforms','India: Climate, Vegetation and Wildlife','What, Where, How and When?','On the Trial of the Earliest People','From Hunting-Gathering to Growing Food','New Questions and Ideas','New Empires and Kingdoms','Buildings, Paintings and Books'],English:["Who Did Patrick's Homework?","How the Dog Found Himself a New Master","Taro's Reward",'An Indian-American Woman in Space','A Different Kind of School','Who I Am','Fair Play','A Game of Chance','Desert Animals','The Banyan Tree','The Ashes That Made Trees Bloom','A Pact with the Sun'],Hindi:['कलम और तलवार','झाँसी की रानी','हिमालय की बेटियाँ','संसार पुस्तक है','चिट्ठी का सफर','भगवान के डाकिए','जो देखकर भी नहीं देखते','संस्मरण','लोकगीत','वन के मार्ग में','साँस-साँस में बाँस','अन्य पाठ'],Sanskrit:['शब्दपरिचयः','शब्दपरिचयः द्वितीयः','शब्दपरिचयः तृतीयः','विद्यालयः','वृक्षाः','समुद्रतटः','बकस्य प्रतिकारः','सूक्तिस्तबकः','क्रीडास्पर्धा','कृषिकाः कर्मवीराः','दशमः त्वम् असि','विमानयानं रचयाम']};
-const classEmoji={6:'🌱',7:'🚀',8:'🔥',9:'🎯'};const resources=[['📚','Syllabus','syllabus'],['📝','Notes','notes'],['🎥','Video','video'],['❓','Question Answers','qa'],['🧠','Quiz','quiz'],['⚡','One Shot','oneshot'],['🎯','NCERT Practice','practice'],['🔄','Rapid Revision','rapid']];
-let state={cls:6,subject:'Mathematics',chapter:0,res:'syllabus',score:0,answered:0};
-function renderClasses(){classGrid.innerHTML=[6,7,8,9].map(c=>`<button class="card class" onclick="selectClass(${c})"><div class="icon">${classEmoji[c]}</div><h3>Class ${c}</h3><p>Study • Practice • Quiz • Revise</p></button>`).join('')}
-function selectClass(c){state.cls=c;subjectPage.style.display='block';chapterPage.style.display='none';resourcePage.style.display='none';portal.style.display='block';classCrumb.textContent='CLASS '+c;subjectGrid.innerHTML=subjects.map(s=>`<button class="card" onclick='selectSubject(${JSON.stringify(s[1])})'><div class="icon">${s[0]}</div><h3>${s[1]}</h3><p>Chapters • Notes • Quiz • Practice</p></button>`).join('');portal.scrollIntoView({behavior:'smooth'})}
-function selectSubject(s){state.subject=s;subjectPage.style.display='none';chapterPage.style.display='block';resourcePage.style.display='none';subjectCrumb.textContent=`CLASS ${state.cls} • ${s}`;chapterGrid.innerHTML=chapters[s].map((c,i)=>`<button class="card" onclick="selectChapter(${i})"><h3>Chapter ${i+1}</h3><p>${c}</p></button>`).join('')}
-function selectChapter(i){state.chapter=i;state.res='syllabus';state.score=0;state.answered=0;subjectPage.style.display='none';chapterPage.style.display='none';resourcePage.style.display='block';resourceCrumb.textContent=`CLASS ${state.cls} • ${state.subject}`;chapterTitle.textContent=`Chapter ${i+1}: ${chapters[state.subject][i]}`;renderResources();renderContent();resourcePage.scrollIntoView({behavior:'smooth'})}
-function renderResources(){resourceGrid.innerHTML=resources.map(r=>`<button class="resource ${state.res===r[2]?'active':''}" onclick="openResource('${r[2]}')"><div class="ri">${r[0]}</div><h3>${r[1]}</h3><p>Open ${r[1]}</p></button>`).join('')}
-function openResource(r){state.res=r;state.score=0;state.answered=0;renderResources();renderContent()}
-function renderContent(){const t=chapters[state.subject][state.chapter];let h='';if(state.res==='syllabus')h=`<h2>📚 Syllabus</h2><div class="note"><b>Class ${state.cls} • ${state.subject}</b><br>Chapter ${state.chapter+1}: ${t}</div><h3>Study roadmap</h3><ul><li>Understand the chapter concepts.</li><li>Learn important definitions, facts and examples.</li><li>Study the current textbook activities and exercises.</li><li>Practise questions and revise.</li></ul><div class="note">Final official 2026–27 chapter details should be verified against the current NCERT textbook before publication.</div>`;if(state.res==='notes')h=`<h2>📝 Smart Notes</h2><div class="note"><b>Chapter overview</b><br>Understand what ${t} is about before memorising details.</div><div class="note"><b>Key concepts</b><br>Write the main ideas in your own words.</div><div class="note"><b>Important terms</b><br>Collect definitions, formulas, vocabulary and facts relevant to this chapter.</div><div class="note"><b>Examples</b><br>Study textbook examples and try them yourself.</div><div class="note"><b>Quick recap</b><br>After notes, practise and take the quiz.</div>`;if(state.res==='video')h=`<h2>🎥 Video Lesson</h2><p>Use a chapter-specific search rather than opening a distracting video feed.</p><a class="video" target="_blank" href="https://www.youtube.com/results?search_query=NCERT+Class+${state.cls}+${encodeURIComponent(state.subject)}+${encodeURIComponent(t)}">▶ Find a Chapter Video</a><div class="note">Later, an exact authorised video link can replace this search link.</div>`;if(state.res==='qa')h=`<h2>❓ Question Answers</h2>${['What is the main idea of this chapter?','Write the important concepts or terms.','Which textbook exercises should you practise?'].map((q,i)=>`<div class="note"><b>Q${i+1}. ${q}</b><br><br><b>Answer:</b> Prepare the answer from the relevant current textbook content for <b>${t}</b>. Chapter-specific answers can be added here.</div>`).join('')}`;if(state.res==='oneshot')h=`<h2>⚡ One Shot</h2><ol><li>Read the introduction.</li><li>Understand the main concept.</li><li>Revise important terms and examples.</li><li>Practise textbook questions.</li><li>Take the quiz.</li><li>Finish rapid revision.</li></ol>`;if(state.res==='practice')h=`<h2>🎯 NCERT Practice</h2><ol><li>Explain the central idea of <b>${t}</b>.</li><li>Write five important terms or facts.</li><li>Solve the relevant textbook exercises.</li><li>Attempt one application question.</li><li>Self-check your answer.</li></ol>`;if(state.res==='rapid')h=`<h2>🔄 Rapid Revision</h2><ul><li>⭐ Main concept</li><li>⭐ Key definitions</li><li>⭐ Important examples</li><li>⭐ Textbook exercises</li><li>⭐ Common questions</li><li>⭐ Final self-test</li></ul>`;if(state.res==='quiz'){const qs=[{q:`What is the best first step when studying “${t}”?`,o:['Understand the concept','Skip the chapter','Only memorise headings','Only watch a video'],a:0},{q:'Which resource is designed for quick final revision?',o:['Rapid Revision','Home page','About page','Footer'],a:0},{q:'What should be practised regularly?',o:['Only headings','Textbook questions and exercises','Only the logo','Nothing'],a:1},{q:'What should you do after studying notes?',o:['Take the quiz','Close the site','Skip practice','Forget the chapter'],a:0}];window.currentQuiz=qs;h='<h2>🧠 Chapter Quiz</h2><p>Answer all questions. Your score appears at the end.</p>';qs.forEach((q,i)=>{h+=`<div class="quiz-question">${i+1}. ${q.q}</div>${q.o.map((o,j)=>`<button class="option" onclick="answerQuiz(this,${i},${j})">${o}</button>`).join('')}`});h+='<div class="score" id="quizScore"></div>'}content.innerHTML=h}
-function answerQuiz(btn,i,j){const box=btn.parentElement;if(btn.disabled)return;box.querySelectorAll('.option').forEach(b=>b.disabled=true);const q=window.currentQuiz[i];if(j===q.a){btn.classList.add('correct');state.score++}else{btn.classList.add('wrong');box.querySelectorAll('.option')[q.a].classList.add('correct')}state.answered++;if(state.answered===window.currentQuiz.length)document.getElementById('quizScore').textContent=`Your Score: ${state.score} / ${window.currentQuiz.length}`}
-function backChapters(){resourcePage.style.display='none';chapterPage.style.display='block';chapterPage.scrollIntoView({behavior:'smooth'})}function home(){portal.style.display='none';window.scrollTo({top:0,behavior:'smooth'})}
-function searchSite(){const q=document.getElementById('searchBox').value.trim().toLowerCase();if(!q){renderClasses();return}const out=[];for(let c=6;c<=9;c++)subjects.forEach(s=>{if(s[1].toLowerCase().includes(q))out.push({c,s:s[1]});chapters[s[1]].forEach((ch,i)=>{if(ch.toLowerCase().includes(q))out.push({c,s:s[1],i,ch})})});if(!out.length){classGrid.innerHTML='<div class="note" style="grid-column:1/-1">No result found. Try a class, subject or chapter.</div>';return}classGrid.innerHTML=out.slice(0,30).map(r=>r.i===undefined?`<button class="card class" onclick="selectClass(${r.c})"><div class="icon">${classEmoji[r.c]}</div><h3>Class ${r.c}</h3><p>${r.s}</p></button>`:`<button class="card" onclick='selectClass(${r.c});setTimeout(()=>selectSubject(${JSON.stringify(r.s)}),80);setTimeout(()=>selectChapter(${r.i}),160)'><h3>Class ${r.c} • ${r.s}</h3><p>Chapter ${r.i+1}: ${r.ch}</p></button>`).join('')}
+const DATA={
+6:{
+ "Mathematics":{book:"Ganita Prakash",chapters:["Patterns in Mathematics","Lines and Angles","Number Play","Data Handling and Presentation","Prime Time","Perimeter and Area","Fractions","Playing with Constructions","Symmetry","The Other Side of Zero"]},
+ "Science":{book:"Curiosity",chapters:["The Wonderful World of Science","Diversity in the Living World","Mindful Eating: A Path to a Healthy Body","Exploring Magnets","Measurement of Length and Motion","Materials Around Us","Temperature and its Measurement","A Journey through States of Water","Methods of Separation in Everyday Life","Living Creatures: Exploring their Characteristics","Nature's Treasures","Beyond Earth"]},
+ "Social Science":{book:"Exploring Society: India and Beyond",chapters:["Locating Places on the Earth","Oceans and Continents","Landforms and Life","Timeline and Sources of History","India, That Is Bharat","The Beginnings of Indian Civilisation","India's Cultural Roots","Unity in Diversity, or Many in the One","Family and Community","Grassroots Democracy - Part 1: Governance","Grassroots Democracy - Part 2: Local Government in Rural Areas","Grassroots Democracy - Part 3: Local Government in Urban Areas","The Value of Work","Economic Activities Around Us"]},
+ "English":{book:"Poorvi",chapters:["Coming Soon - NCERT chapter list will be added after verification"]},
+ "Hindi":{book:"Malhar",chapters:["Coming Soon - NCERT chapter list will be added after verification"]},
+ "Sanskrit":{book:"Deepakam",chapters:["Coming Soon - NCERT chapter list will be added after verification"]}
+},
+7:{
+ "Mathematics":{book:"Ganita Prakash • Part I",chapters:["Large Numbers Around Us","Arithmetic Expressions","A Peek Beyond the Point","Expressions using Letter-Numbers","Parallel and Intersecting Lines","Number Play","A Tale of Three Intersecting Lines","Working with Fractions"]},
+ "Science":{book:"Curiosity",chapters:["The Ever-Evolving World of Science","Exploring Substances: Acidic, Basic, and Neutral","Electricity: Circuits and their Components","The World of Metals and Non-metals","Changes Around Us: Physical and Chemical","Adolescence: A Stage of Growth and Change","Heat Transfer in Nature","Measurement of Time and Motion","Life Processes in Animals","Life Processes in Plants","Light: Shadows and Reflections","Earth, Moon and the Sun"]},
+ "Social Science":{book:"NCERT 2026–27",chapters:["Coming Soon - current textbook mapping is being verified"]},
+ "English":{book:"NCERT 2026–27",chapters:["Coming Soon - current textbook mapping is being verified"]},
+ "Hindi":{book:"NCERT 2026–27",chapters:["Coming Soon - current textbook mapping is being verified"]}
+},
+8:{
+ "Mathematics":{book:"Ganita Prakash • Part I & II",chapters:["A Square and a Cube","Power Play","A Story of Numbers","Quadrilaterals","Number Play","We Distribute, Yet Things Multiply","Proportional Reasoning - 1","Fractions in Disguise","The Baudhayana-Pythagoras Theorem","Proportional Reasoning - 2","Exploring Some Geometric Themes","Tales by Dots and Lines","Algebra Play","Area"]},
+ "Science":{book:"Curiosity",chapters:["Exploring the Investigative World of Science","The Invisible Living World: Beyond Our Naked Eye","Health: The Ultimate Treasure","Electricity: Magnetic and Heating Effects","Exploring Forces","Pressure, Winds, Storms, and Cyclones","Particulate Nature of Matter","Nature of Matter: Elements, Compounds, and Mixtures","The Amazing World of Solutes, Solvents, and Solutions","Light: Mirrors and Lenses","Keeping Time with the Skies","How Nature Works in Harmony","Our Home: Earth, a Unique Life Sustaining Planet"]},
+ "Arts Education":{book:"Kriti",chapters:["Coming Soon - chapter-wise content will be added after verification"]},
+ "Social Science":{book:"NCERT 2026–27",chapters:["Coming Soon - current textbook mapping is being verified"]},
+ "English":{book:"NCERT 2026–27",chapters:["Coming Soon - current textbook mapping is being verified"]}
+},
+9:{
+ "Mathematics":{book:"Ganita Manjari",chapters:["Orienting Yourself: The Use of Coordinates","Introduction to Linear Polynomials","The World of Numbers","Exploring Algebraic Identities","I'm Up and Down, and Round and Round","Measuring Space: Perimeter and Area","The Mathematics of Maybe: Introduction to Probability","Predicting What Comes Next: Exploring Sequences and Progressions"]},
+ "Science":{book:"Science • 2026–27",chapters:["Exploring: Entering the World of Secondary Science","Cell: The Building Block of Life","Tissues in Action","Describing Motion Around Us","Exploring Mixtures and their Separation","How Forces Affect Motion","Work, Energy and Simple Machines","Sound: How We Hear","Reproduction: How Life Continues","Diversity and Classification","Earth as a System: Energy, Matter and Life","Atoms and Molecules"]},
+ "Social Science":{book:"New NCERT book release",chapters:["Coming Soon - NCERT scheduled the new Grade 9 Social Science book for September 30, 2026"]},
+ "English":{book:"Kaveri",chapters:["Coming Soon - chapter-wise content will be added after verification"]},
+ "Hindi":{book:"NCERT 2026–27",chapters:["Coming Soon - chapter-wise content will be added after verification"]}
+}
+};
+
+const icons={Mathematics:"📐",Science:"🔬","Social Science":"🌍",English:"📘",Hindi:"🇮🇳",Sanskrit:"🪷","Arts Education":"🎨"};
+const resources=[["📚","Syllabus","syllabus"],["🧠","Smart Notes","notes"],["🎥","Selected Video","video"],["📝","Question Answers","qa"],["🧩","15-Question Quiz","quiz"],["⚡","One Shot","oneshot"],["🎯","NCERT Practice","practice"],["🔄","Rapid Revision","rapid"]];
+const classIcons={6:"🌱",7:"🚀",8:"🔥",9:"🎯"};
+let S={cls:6,subject:"Mathematics",chapter:0,res:"syllabus",quiz:[],answers:{},score:0};
+
+function renderClasses(){classGrid.innerHTML=[6,7,8,9].map(c=>'<button class="card class" onclick="selectClass('+c+')"><div class="icon">'+classIcons[c]+'</div><h3>Class '+c+'</h3><p>2026–27 • Choose your subject</p></button>').join("")}
+function selectClass(c){
+ S.cls=c; home.style.display="block"; portal.style.display="block"; subjectPage.style.display="block"; chapterPage.style.display="none"; resourcePage.style.display="none";
+ classCrumb.textContent="CLASS "+c+" • SESSION 2026–27";
+ subjectGrid.innerHTML=Object.entries(DATA[c]).map(([name,d])=>'<button class="card" onclick="selectSubject('+JSON.stringify(name)+')"><div class="icon">'+(icons[name]||"📚")+'</div><h3>'+name+'</h3><span class="book">'+d.book+'</span><p>'+d.chapters.length+' chapter entries</p></button>').join("");
+ portal.scrollIntoView({behavior:"smooth"});
+}
+function selectSubject(name){
+ S.subject=name; subjectPage.style.display="none"; chapterPage.style.display="block"; resourcePage.style.display="none";
+ const d=DATA[S.cls][name]; subjectCrumb.textContent="CLASS "+S.cls+" • "+name; bookLine.textContent="Book: "+d.book;
+ chapterGrid.innerHTML=d.chapters.map((ch,i)=>{
+   const soon=ch.startsWith("Coming Soon");
+   return '<button class="card '+(soon?"disabled":"")+'" '+(soon?"disabled":"onclick=\"selectChapter("+i+")\"")+'><div class="book">CHAPTER '+(i+1)+'</div><h3>'+ch+'</h3><p>'+(soon?"Content coming soon after verification.":"Open Syllabus • Notes • Q&A • 15-question Quiz • Revision")+'</p></button>';
+ }).join("");
+}
+function selectChapter(i){
+ S.chapter=i; S.res="syllabus"; S.answers={}; S.score=0;
+ subjectPage.style.display="none";chapterPage.style.display="none";resourcePage.style.display="block";
+ const d=DATA[S.cls][S.subject]; const ch=d.chapters[i];
+ resourceCrumb.textContent="CLASS "+S.cls+" • "+S.subject+" • "+d.book;
+ chapterTitle.textContent=ch; chapterMeta.textContent="Chapter "+(i+1)+" • "+d.book+" • 2026–27";
+ renderResources();renderContent();resourcePage.scrollIntoView({behavior:"smooth"});
+}
+function renderResources(){resourceGrid.innerHTML=resources.map(r=>'<button class="resource '+(S.res===r[2]?"active":"")+'" onclick="openResource('+JSON.stringify(r[2])+')"><div class="ri">'+r[0]+'</div><h3>'+r[1]+'</h3><p>Open chapter '+r[1].toLowerCase()+'</p></button>').join("")}
+function openResource(r){S.res=r;renderResources();renderContent()}
+
+function topicData(title,subject){
+ const t=title.toLowerCase();
+ if(subject==="Mathematics"){
+  if(t.includes("coordinate"))return {focus:"Cartesian coordinates, axes, ordered pairs and locating points.",facts:["An ordered pair is written (x, y).","The x-coordinate is read first and the y-coordinate second.","The origin is (0, 0).","Points are located using two perpendicular axes."]};
+  if(t.includes("polynomial"))return {focus:"Linear polynomials and algebraic expressions.",facts:["A polynomial is an algebraic expression.","A linear polynomial has degree 1.","Coefficients multiply variables.","Like terms can be combined."]};
+  if(t.includes("number"))return {focus:"Number relationships, operations and patterns.",facts:["Numbers can be represented in different forms.","Factors divide a number exactly.","Multiples are obtained by repeated multiplication.","Number patterns can be described by rules."]};
+  if(t.includes("probability")||t.includes("maybe"))return {focus:"Chance, outcomes and simple probability.",facts:["An experiment can have possible outcomes.","Probability measures how likely an event is.","For equally likely outcomes, probability = favourable outcomes / total outcomes.","A probability lies between 0 and 1."]};
+  if(t.includes("fraction"))return {focus:"Fractions, equivalent forms and operations.",facts:["A fraction has a numerator and denominator.","Equivalent fractions represent the same value.","Common denominators help when adding or subtracting fractions.","Multiplying fractions uses numerator-by-numerator and denominator-by-denominator."]};
+  if(t.includes("perimeter")||t.includes("area"))return {focus:"Measuring boundaries and surfaces of shapes.",facts:["Perimeter is the distance around a closed figure.","Rectangle perimeter = 2(l+b).","Square perimeter = 4s.","Rectangle area = l×b and square area = s²."]};
+  if(t.includes("angle")||t.includes("line"))return {focus:"Geometric lines, rays, segments and angle relationships.",facts:["A line extends in both directions.","A line segment has two endpoints.","Angles are measured in degrees.","An acute angle is less than 90°."]};
+  if(t.includes("symmetry"))return {focus:"Line symmetry and balanced shapes.",facts:["A line of symmetry divides a figure into matching halves.","Some figures have more than one line of symmetry.","A figure can have rotational symmetry.","Symmetry helps describe geometric structure."]};
+  if(t.includes("data"))return {focus:"Collecting, organising and representing data.",facts:["Data can be collected through observations or surveys.","Tables organise information.","Bar graphs compare quantities visually.","The scale of a graph must be read carefully."]};
+  return {focus:"The main mathematical ideas, patterns and reasoning in this chapter.",facts:["Mathematics uses patterns and logical reasoning.","Representing information clearly helps solve problems.","Estimation can help check whether an answer is reasonable.","Practice should focus on both method and answer."]};
+ }
+ if(subject==="Science"){
+  if(t.includes("magnet"))return {focus:"Magnets, poles, attraction, repulsion and magnetic materials.",facts:["Magnets have two poles: north and south.","Like poles repel and unlike poles attract.","Iron and some other materials can be attracted by magnets.","A compass uses a magnetic needle to find directions."]};
+  if(t.includes("electricity")||t.includes("circuit"))return {focus:"Electrical circuits, current path and components.",facts:["A complete circuit needs a continuous conducting path.","A cell provides electrical energy.","Conductors allow electric current to pass more easily.","A switch can open or close a circuit."]};
+  if(t.includes("acidic")||t.includes("neutral"))return {focus:"Acids, bases, indicators and neutral substances.",facts:["Acids and bases have different properties.","Indicators help identify acidic or basic substances.","A neutral substance is neither acidic nor basic.","Safety is important when handling laboratory substances."]};
+  if(t.includes("metal")||t.includes("non-metal"))return {focus:"Properties and uses of metals and non-metals.",facts:["Many metals are lustrous and good conductors.","Metals can often be shaped by beating or drawing.","Non-metals show a wide range of properties.","Properties help determine suitable uses of materials."]};
+  if(t.includes("change"))return {focus:"Physical and chemical changes around us.",facts:["Some changes are reversible.","A chemical change forms new substances.","A physical change may alter state or shape without forming a new substance.","Changes can be observed through measurable effects."]};
+  if(t.includes("heat")||t.includes("temperature"))return {focus:"Heat, temperature and transfer of thermal energy.",facts:["Temperature indicates how hot or cold something is.","Heat moves from a warmer region to a cooler region.","Conduction, convection and radiation are modes of heat transfer.","Materials differ in how they conduct heat."]};
+  if(t.includes("motion")||t.includes("time"))return {focus:"Describing motion using distance and time.",facts:["Motion means a change in position with time.","Speed compares distance travelled with time taken.","Different objects can move at different speeds.","Accurate measurement needs suitable units and instruments."]};
+  if(t.includes("life process")&&t.includes("animal"))return {focus:"Nutrition and respiration in animals.",facts:["Digestion breaks complex food into simpler substances.","The alimentary canal carries food through the digestive system.","Respiration releases energy from food.","Different animals show adaptations in feeding and breathing."]};
+  if(t.includes("life process")&&t.includes("plant"))return {focus:"Life processes in plants.",facts:["Plants make food through photosynthesis.","Roots absorb water and minerals.","Leaves exchange gases through tiny openings called stomata.","Plants also respire and transport materials."]};
+  if(t.includes("light")||t.includes("shadow"))return {focus:"Light, reflection and formation of shadows.",facts:["Light travels from a source to the observer.","Opaque objects can form shadows.","Reflection changes the direction of light.","The size of a shadow depends on relative positions and distances."]};
+  if(t.includes("earth")||t.includes("moon")||t.includes("sun"))return {focus:"Earth's rotation, revolution, day-night cycle and sky observations.",facts:["Earth rotates on its axis.","Rotation causes day and night.","Earth revolves around the Sun.","The Moon moves around Earth and shows changing phases."]};
+  if(t.includes("cell"))return {focus:"Cells as the basic structural and functional units of life.",facts:["Cells are the basic units of living organisms.","Plant and animal cells have common and different structures.","The nucleus contains genetic information.","Cell structures perform specialised functions."]};
+  if(t.includes("force"))return {focus:"Forces and their effects on motion.",facts:["A force can change motion or shape.","Forces can be pushes or pulls.","Balanced forces have no net change in motion.","Friction opposes relative motion between surfaces."]};
+  if(t.includes("matter")||t.includes("mixture"))return {focus:"Matter, particles, substances and separation of mixtures.",facts:["Matter has mass and occupies space.","Substances can be elements, compounds or mixtures.","Mixtures can often be separated by physical methods.","Properties of components help choose a separation method."]};
+  return {focus:"Scientific observation, explanation and evidence related to this chapter.",facts:["Science uses observation and evidence.","A good investigation asks a clear question.","Measurements should use appropriate instruments and units.","Conclusions should match the evidence collected."]};
+}
+return {focus:"Chapter-specific learning for "+title,facts:["Read the chapter carefully.","Underline key terms and definitions.","Complete the textbook activities and exercises.","Revise the main ideas before attempting the quiz."]};
+}
+
+function makeQuiz(title,subject){
+ const d=topicData(title,subject), f=d.facts;
+ const qs=[];
+ const stems=[
+  ["Which statement best matches this chapter's main focus?",d.focus,["A completely unrelated topic","Only memorising the chapter title","A topic outside the subject"]],
+  ["Which idea is important while studying this chapter?",f[0],["Ignoring evidence","Skipping examples","Avoiding practice"]],
+  ["Which statement is also correct?",f[1],["It is never useful","It is unrelated to this chapter","It should not be revised"]],
+  ["Which of the following supports understanding of this chapter?",f[2],["Only reading the heading","Only guessing answers","Skipping the textbook"]],
+  ["Which statement should a student remember?",f[3],["The chapter has no applications","Practice is unnecessary","Revision is optional"]],
+  ["What should you do after learning the main concept?", "Practise chapter questions and check your mistakes.",["Skip all questions","Open unrelated content","Stop studying"]],
+  ["Which is a good exam habit for this chapter?", "Explain the idea in your own words before memorising it.",["Copy without understanding","Memorise the title only","Avoid examples"]],
+  ["Which resource is most useful immediately after notes?", "Chapter Question Answers and Practice.",["A social feed","A random homepage","An unrelated chapter"]],
+  ["Which statement about the chapter is safest?", "Use the current textbook and examples as the reference.",["Use an old chapter list blindly","Assume every website is current","Skip the textbook"]],
+  ["How should difficult questions be handled?", "Break them into smaller steps and check the concept.",["Guess every answer","Skip the chapter","Change the subject"]],
+  ["What helps long-term recall?", "Rapid revision followed by retrieval practice.",["Only rereading once","Never testing yourself","Studying without breaks"]],
+  ["What should you check after a wrong quiz answer?", "The explanation and the related concept in the chapter.",["Only the score","Nothing","A random chapter"]],
+  ["What is an effective way to prepare?", "Learn, practise, quiz and revise.",["Quiz only","Watch videos only","Read the title only"]],
+  ["What should you do before marking the chapter complete?", "Check the important concepts and complete practice.",["Skip practice","Ignore mistakes","Leave all steps unfinished"]],
+  ["Final check: are you ready to move on?", "You can explain the key ideas without looking at the notes.",["You remember only the heading","You skipped the questions","You did not study the chapter"]]
+ ];
+ stems.forEach((x,i)=>{const opts=[x[1],...x[2]];const shuffled=shuffle(opts.slice());qs.push({q:(i+1)+". "+x[0],opts:shuffled,a:shuffled.indexOf(x[1])})});
+ return qs;
+}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+function renderContent(){
+ const title=DATA[S.cls][S.subject].chapters[S.chapter], info=topicData(title,S.subject), r=S.res;
+ if(r==="quiz"){renderQuiz();return}
+ let html="";
+ if(r==="syllabus")html='<h2>📚 Syllabus</h2><div class="note"><strong>Class '+S.cls+' • '+S.subject+'</strong><br>'+title+'</div><h3>Chapter roadmap</h3><ul><li>'+info.focus+'</li>'+info.facts.map(x=>'<li>'+x+'</li>').join("")+'</ul><div class="note">This roadmap is tied to the selected chapter. The exact official wording remains in the NCERT textbook; Aditya Learns uses original explanations.</div>';
+ if(r==="notes")html='<h2>🧠 Smart Notes</h2><div class="note"><strong>Chapter focus</strong><br>'+info.focus+'</div><h3>Key ideas</h3><ul>'+info.facts.map(x=>'<li>'+x+'</li>').join("")+'</ul><div class="note"><strong>Study method:</strong> Read each point, close the notes, explain it aloud, then practise a question.</div>';
+ if(r==="video")html='<h2>🎥 Selected Video</h2><p>Use a chapter-specific search instead of opening a general YouTube feed.</p><a class="video" target="_blank" href="https://www.youtube.com/results?search_query=Class+'+S.cls+'+'+encodeURIComponent(S.subject)+'+'+encodeURIComponent(title)+'+NCERT+2026">▶ Find a chapter lesson</a><div class="note">The site does not download or re-host third-party videos. A reviewed exact video URL can later be stored in this chapter's data.</div>';
+ if(r==="qa")html='<h2>📝 Question Answers</h2><div class="note"><strong>Important chapter questions</strong></div>'+info.facts.map((x,i)=>'<div class="note"><strong>Q'+(i+1)+'. Explain this idea from '+title+'.</strong><br><br><b>Answer:</b> '+x+'</div>').join("")+'<div class="note">More textbook-aligned Q&A can be added here chapter-by-chapter without changing the website design.</div>';
+ if(r==="oneshot")html='<h2>⚡ One Shot</h2><div class="note"><strong>15–30 minute revision</strong><br>'+info.focus+'</div><ol>'+info.facts.map(x=>'<li>'+x+'</li>').join("")+'</ol><p>Finish with the 15-question quiz.</p>';
+ if(r==="practice")html='<h2>🎯 NCERT Practice</h2><p>Work through the exercises for <b>'+title+'</b> in the current NCERT book, then attempt these self-check tasks:</p><ol><li>Explain the chapter in 3–5 lines.</li><li>Write four key terms.</li><li>Solve one textbook example without looking.</li><li>Write one real-life application.</li><li>Check and correct your own answer.</li></ol>';
+ if(r==="rapid")html='<h2>🔄 Rapid Revision</h2><div class="note"><strong>Remember</strong><br>'+info.focus+'</div><ul>'+info.facts.map(x=>'<li>✅ '+x+'</li>').join("")+'</ul>';
+ content.innerHTML=html;
+}
+
+function renderQuiz(){
+ const title=DATA[S.cls][S.subject].chapters[S.chapter]; S.quiz=makeQuiz(title,S.subject); S.answers={}; S.score=0;
+ let html='<h2>🧩 15-Question Chapter Quiz</h2><div class="quizbar"><span>Class '+S.cls+' • '+S.subject+'</span><span>15 questions</span></div>';
+ S.quiz.forEach((q,i)=>{html+='<div class="qcard" id="q'+i+'"><div class="qno">Question '+(i+1)+' of 15</div><p><strong>'+q.q+'</strong></p>'+q.opts.map((o,j)=>'<button class="option" onclick="pick('+i+','+j+',this)">'+o+'</button>').join("")+'<div id="exp'+i+'"></div></div>'});
+ html+='<div id="finalScore" class="score"></div>';
+ content.innerHTML=html;
+}
+function pick(i,j,btn){
+ if(S.answers[i]!==undefined)return;
+ S.answers[i]=j; const q=S.quiz[i]; const box=document.getElementById("q"+i);
+ box.querySelectorAll(".option").forEach(b=>b.disabled=true);
+ if(j===q.a){btn.classList.add("correct");S.score++}else{btn.classList.add("wrong");box.querySelectorAll(".option")[q.a].classList.add("correct")}
+ document.getElementById("exp"+i).innerHTML='<div class="note"><strong>Explanation:</strong> Review the chapter focus and key ideas before continuing.</div>';
+ if(Object.keys(S.answers).length===15)document.getElementById("finalScore").innerHTML='✅ Quiz complete — Score: '+S.score+' / 15 <button class="next" onclick="renderQuiz()">Retry Quiz</button>';
+}
+
+function backToSubjects(){chapterPage.style.display="none";subjectPage.style.display="block";subjectPage.scrollIntoView({behavior:"smooth"})}
+function backToChapters(){resourcePage.style.display="none";chapterPage.style.display="block";chapterPage.scrollIntoView({behavior:"smooth"})}
+function goHome(){portal.style.display="none";window.scrollTo({top:0,behavior:"smooth"})}
+function doSearch(){
+ const q=document.getElementById("searchInput").value.trim().toLowerCase();
+ if(!q){renderClasses();return}
+ const res=[];
+ [6,7,8,9].forEach(c=>Object.entries(DATA[c]).forEach(([s,d])=>{if(s.toLowerCase().includes(q)||d.book.toLowerCase().includes(q))res.push({c,s})}));
+ classGrid.innerHTML=res.length?res.map(x=>'<button class="card class" onclick="selectClass('+x.c+');setTimeout(()=>selectSubject('+JSON.stringify(x.s)+'),100)"><div class="icon">'+classIcons[x.c]+'</div><h3>Class '+x.c+'</h3><p>'+x.s+'</p></button>').join(""):'<div class="note" style="grid-column:1/-1">No class or subject found. Try Mathematics, Science, Class 6, Class 7, Class 8 or Class 9.</div>';
+}
 renderClasses();
 </script>
-</body></html>
+</body>
+</html>
