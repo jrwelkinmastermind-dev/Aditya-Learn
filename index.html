@@ -4,377 +4,1154 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Aditya Learns | Smart Learning for Classes 6–9</title>
+<title>Aditya Learns | Smart Learning</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#f7f8fc;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f6f7fb;
     color:#172033;
+    line-height:1.6;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 header{
-    background:linear-gradient(135deg,#6c5ce7,#8e44ad);
-    color:white;
-    padding:22px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
     position:sticky;
     top:0;
-    z-index:100;
+    z-index:1000;
+    background:linear-gradient(90deg,#6654e8,#a63db1);
+    color:white;
+    box-shadow:0 4px 20px rgba(0,0,0,.12);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
-    font-size:25px;
+    font-size:27px;
     font-weight:800;
+    letter-spacing:.5px;
 }
 
 .logo span{
-    color:#ffe66d;
+    color:#ffe34d;
 }
 
-nav a{
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
     color:white;
     text-decoration:none;
-    margin-left:22px;
-    font-weight:600;
+    font-weight:700;
+    transition:.2s;
 }
 
+.nav-links a:hover{
+    color:#ffe34d;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
-    min-height:520px;
+    min-height:560px;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:60px 20px;
+    padding:80px 20px;
     background:
-        radial-gradient(circle at top left,#e5dcff,transparent 40%),
-        radial-gradient(circle at bottom right,#d8f3ff,transparent 40%),
-        #f7f8fc;
+    radial-gradient(circle at 10% 20%,rgba(255,255,255,.8),transparent 30%),
+    linear-gradient(135deg,#f2edff,#eefaff);
 }
 
 .hero-content{
-    max-width:850px;
+    max-width:900px;
 }
 
 .badge{
     display:inline-block;
-    background:#ffffff;
-    padding:10px 18px;
-    border-radius:30px;
+    background:white;
+    padding:12px 24px;
+    border-radius:50px;
     box-shadow:0 8px 25px rgba(0,0,0,.08);
-    color:#6c5ce7;
-    font-weight:bold;
-    margin-bottom:20px;
+    color:#6654e8;
+    font-weight:700;
+    margin-bottom:30px;
 }
 
-h1{
-    font-size:clamp(45px,8vw,82px);
+.hero h1{
+    font-size:76px;
     line-height:1;
-    margin-bottom:20px;
-    background:linear-gradient(90deg,#6c5ce7,#e84393);
+    margin-bottom:25px;
+    background:linear-gradient(90deg,#6456e8,#e13c9c);
     -webkit-background-clip:text;
+    background-clip:text;
     color:transparent;
 }
 
 .hero p{
     font-size:20px;
-    color:#5d6475;
-    max-width:650px;
+    color:#59657b;
+    max-width:760px;
     margin:auto;
-    line-height:1.6;
 }
 
-.start-btn{
+.btn{
     display:inline-block;
-    margin-top:30px;
-    padding:16px 34px;
+    margin-top:35px;
+    padding:16px 32px;
     border-radius:40px;
-    background:#6c5ce7;
+    background:#6654e8;
     color:white;
     text-decoration:none;
     font-size:18px;
-    font-weight:bold;
-    box-shadow:0 12px 30px rgba(108,92,231,.3);
+    font-weight:700;
+    box-shadow:0 12px 30px rgba(102,84,232,.3);
+    transition:.25s;
+    border:none;
+    cursor:pointer;
 }
 
-.start-btn:hover{
+.btn:hover{
     transform:translateY(-3px);
+    box-shadow:0 16px 35px rgba(102,84,232,.4);
 }
+
+/* =========================
+   GENERAL SECTION
+========================= */
 
 .section{
-    padding:70px 8%;
+    padding:80px 20px;
 }
 
 .section-title{
     text-align:center;
-    font-size:38px;
-    margin-bottom:15px;
+    margin-bottom:45px;
 }
 
-.section-subtitle{
-    text-align:center;
-    color:#6b7280;
-    margin-bottom:40px;
+.section-title h2{
+    font-size:42px;
+    margin-bottom:10px;
 }
 
-.class-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-    gap:22px;
-    max-width:1000px;
+.section-title p{
+    color:#68738a;
+    font-size:17px;
+}
+
+/* =========================
+   CLASS CARDS
+========================= */
+
+.classes{
+    max-width:1100px;
     margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
 }
 
 .class-card{
     background:white;
-    border-radius:24px;
-    padding:30px 20px;
+    padding:38px 20px;
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.07);
-    text-decoration:none;
-    color:#172033;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    cursor:pointer;
     transition:.25s;
+    border:2px solid transparent;
 }
 
 .class-card:hover{
     transform:translateY(-8px);
+    border-color:#8a6ff0;
     box-shadow:0 18px 40px rgba(0,0,0,.12);
 }
 
 .class-icon{
-    font-size:45px;
+    font-size:55px;
     margin-bottom:12px;
 }
 
 .class-card h3{
-    font-size:22px;
+    font-size:25px;
 }
 
-.resources{
-    background:#111827;
+.class-card p{
+    color:#7b8497;
+}
+
+/* =========================
+   STUDY SECTION
+========================= */
+
+.study-section{
+    background:#101827;
     color:white;
 }
 
-.resource-grid{
+.study-grid{
+    max-width:1200px;
+    margin:auto;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
 }
 
-.resource-card{
-    background:#1f2937;
-    border:1px solid #374151;
-    padding:28px;
+.study-card{
+    background:#202c3e;
+    border:1px solid #344258;
     border-radius:22px;
+    padding:30px;
     transition:.25s;
 }
 
-.resource-card:hover{
-    transform:translateY(-5px);
-    background:#293449;
+.study-card:hover{
+    transform:translateY(-6px);
+    background:#26344a;
 }
 
-.resource-icon{
-    font-size:38px;
+.study-icon{
+    font-size:42px;
     margin-bottom:15px;
 }
 
-.resource-card h3{
-    margin-bottom:8px;
-    font-size:21px;
+.study-card h3{
+    font-size:22px;
+    margin-bottom:10px;
 }
 
-.resource-card p{
-    color:#b9c0ce;
-    line-height:1.5;
+.study-card p{
+    color:#c1c9d7;
 }
 
-.about{
-    text-align:center;
-    max-width:800px;
+.study-card button{
+    margin-top:20px;
+    padding:10px 18px;
+    border-radius:25px;
+    border:none;
+    background:#6654e8;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* =========================
+   SUBJECTS
+========================= */
+
+.subject-section{
+    background:white;
+}
+
+.subjects{
+    max-width:1100px;
     margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
+
+.subject{
+    padding:25px;
+    border-radius:20px;
+    background:#f7f8fc;
+    border:1px solid #e5e8ef;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.subject:hover{
+    transform:translateY(-5px);
+    border-color:#765eea;
+}
+
+.subject h3{
+    margin-bottom:5px;
+}
+
+.subject p{
+    color:#70798b;
+}
+
+/* =========================
+   CONTENT PANEL
+========================= */
+
+.content-area{
+    max-width:1000px;
+    margin:50px auto 0;
+    display:none;
+}
+
+.content-box{
+    background:white;
+    border-radius:25px;
+    padding:35px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.content-box h3{
+    color:#6654e8;
+    margin-bottom:15px;
+}
+
+.content-box ul{
+    margin-left:22px;
+}
+
+.content-box li{
+    margin-bottom:8px;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-box{
+    margin-top:25px;
+}
+
+.question{
+    font-size:21px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.options{
+    display:grid;
+    gap:12px;
+}
+
+.option{
+    padding:14px 18px;
+    border:2px solid #e1e4ec;
+    border-radius:12px;
+    cursor:pointer;
+    background:white;
+}
+
+.option:hover{
+    border-color:#6654e8;
+}
+
+.option.correct{
+    background:#dff7e8;
+    border-color:#2ca65a;
+}
+
+.option.wrong{
+    background:#ffe1e1;
+    border-color:#dc4d4d;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    text-align:center;
+    padding:100px 20px;
+    background:linear-gradient(135deg,#f5f1ff,#eefaff);
+}
+
+.cta h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    background:#080b12;
-    color:#9ca3af;
-    text-align:center;
-    padding:30px 20px;
-}
-
-footer strong{
+    background:#070b13;
     color:white;
+    text-align:center;
+    padding:40px 20px;
 }
 
-@media(max-width:700px){
-    nav{
-        display:none;
+footer h3{
+    font-size:22px;
+}
+
+footer p{
+    color:#aeb6c6;
+    margin-top:8px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    background:white;
+    width:min(700px,100%);
+    max-height:85vh;
+    overflow:auto;
+    border-radius:25px;
+    padding:35px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:20px;
+    top:15px;
+    font-size:28px;
+    cursor:pointer;
+    color:#555;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .hero h1{
+        font-size:55px;
     }
 
-    .section{
-        padding:55px 5%;
+    .classes{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .section-title{
-        font-size:30px;
+    .study-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .subjects{
+        grid-template-columns:repeat(2,1fr);
     }
 }
+
+@media(max-width:600px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links{
+        gap:15px;
+        font-size:14px;
+    }
+
+    .hero{
+        min-height:500px;
+        padding:60px 20px;
+    }
+
+    .hero h1{
+        font-size:44px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .classes,
+    .study-grid,
+    .subjects{
+        grid-template-columns:1fr;
+    }
+
+    .content-box{
+        padding:25px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">✨ ADITYA <span>LEARNS</span></div>
+<!-- =========================
+     HEADER
+========================= -->
 
-    <nav>
-        <a href="#classes">Classes</a>
-        <a href="#resources">Resources</a>
-        <a href="#about">About</a>
-    </nav>
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+✨ ADITYA <span>LEARNS</span>
+</div>
+
+<nav class="nav-links">
+<a href="#classes">Classes</a>
+<a href="#resources">Resources</a>
+<a href="#subjects">Subjects</a>
+<a href="#about">About</a>
+</nav>
+
+</div>
+
 </header>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <div class="badge">🎓 Smart Study • Simple Learning</div>
+<div class="badge">
+🎓 Smart Study • Simple Learning
+</div>
 
-        <h1>ADITYA LEARNS</h1>
+<h1>ADITYA LEARNS</h1>
 
-        <p>
-            Your personal learning space for Classes 6–9.
-            Study NCERT concepts, revise quickly, practice questions
-            and test your knowledge — all in one place.
-        </p>
+<p>
+Your personal learning space for Classes 6–9.
+Study NCERT concepts, revise quickly, practice questions
+and test your knowledge — all in one place.
+</p>
 
-        <a href="#classes" class="start-btn">
-            🚀 Get Started
-        </a>
+<a href="#classes" class="btn">
+🚀 Get Started
+</a>
 
-    </div>
+</div>
 
 </section>
+
+
+<!-- =========================
+     CLASSES
+========================= -->
 
 <section class="section" id="classes">
 
-    <h2 class="section-title">📚 Choose Your Class</h2>
+<div class="section-title">
 
-    <p class="section-subtitle">
-        Select your class and start learning.
-    </p>
+<h2>📚 Choose Your Class</h2>
 
-    <div class="class-grid">
+<p>
+Select your class and start learning.
+</p>
 
-        <a class="class-card" href="#">
-            <div class="class-icon">🌱</div>
-            <h3>Class 6</h3>
-        </a>
+</div>
 
-        <a class="class-card" href="#">
-            <div class="class-icon">🚀</div>
-            <h3>Class 7</h3>
-        </a>
+<div class="classes">
 
-        <a class="class-card" href="#">
-            <div class="class-icon">🔥</div>
-            <h3>Class 8</h3>
-        </a>
+<div class="class-card" onclick="selectClass(6)">
+<div class="class-icon">🌱</div>
+<h3>Class 6</h3>
+<p>Foundation Learning</p>
+</div>
 
-        <a class="class-card" href="#">
-            <div class="class-icon">🎯</div>
-            <h3>Class 9</h3>
-        </a>
+<div class="class-card" onclick="selectClass(7)">
+<div class="class-icon">🚀</div>
+<h3>Class 7</h3>
+<p>Build Your Concepts</p>
+</div>
 
-    </div>
+<div class="class-card" onclick="selectClass(8)">
+<div class="class-icon">🔥</div>
+<h3>Class 8</h3>
+<p>Strengthen Your Skills</p>
+</div>
 
-</section>
+<div class="class-card" onclick="selectClass(9)">
+<div class="class-icon">🎯</div>
+<h3>Class 9</h3>
+<p>Prepare for Excellence</p>
+</div>
 
-<section class="section resources" id="resources">
-
-    <h2 class="section-title">🧠 Study Your Way</h2>
-
-    <p class="section-subtitle">
-        Everything you need for smarter revision.
-    </p>
-
-    <div class="resource-grid">
-
-        <div class="resource-card">
-            <div class="resource-icon">📖</div>
-            <h3>Notes</h3>
-            <p>Easy-to-understand chapter notes and important concepts.</p>
-        </div>
-
-        <div class="resource-card">
-            <div class="resource-icon">📝</div>
-            <h3>Question Answers</h3>
-            <p>Important NCERT questions with clear answers.</p>
-        </div>
-
-        <div class="resource-card">
-            <div class="resource-icon">🧠</div>
-            <h3>Quiz</h3>
-            <p>Test yourself with interactive quizzes.</p>
-        </div>
-
-        <div class="resource-card">
-            <div class="resource-icon">⚡</div>
-            <h3>One Shot</h3>
-            <p>Complete chapter revision in a short and focused format.</p>
-        </div>
-
-        <div class="resource-card">
-            <div class="resource-icon">🔄</div>
-            <h3>Rapid Revision</h3>
-            <p>Quick revision before tests and examinations.</p>
-        </div>
-
-        <div class="resource-card">
-            <div class="resource-icon">🎯</div>
-            <h3>NCERT Practice</h3>
-            <p>Practice important NCERT-based questions.</p>
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-<section class="section" id="about">
 
-    <div class="about">
+<!-- =========================
+     STUDY YOUR WAY
+========================= -->
 
-        <h2 class="section-title">✨ Learn. Revise. Improve.</h2>
+<section class="section study-section" id="resources">
 
-        <p class="section-subtitle">
-            Aditya Learns is designed to make studying more organised,
-            enjoyable and student-friendly for Classes 6–9.
-        </p>
+<div class="section-title">
 
-        <a href="#classes" class="start-btn">
-            📚 Start Learning
-        </a>
+<h2>🧠 Study Your Way</h2>
 
-    </div>
+<p>
+Everything you need for smarter revision.
+</p>
+
+</div>
+
+<div class="study-grid">
+
+<div class="study-card">
+
+<div class="study-icon">📖</div>
+
+<h3>Notes</h3>
+
+<p>
+Easy-to-understand chapter notes and
+important concepts.
+</p>
+
+<button onclick="openResource('Notes')">
+Open Notes
+</button>
+
+</div>
+
+
+<div class="study-card">
+
+<div class="study-icon">📝</div>
+
+<h3>Question Answers</h3>
+
+<p>
+Important NCERT questions with
+clear answers.
+</p>
+
+<button onclick="openResource('Question Answers')">
+Open Questions
+</button>
+
+</div>
+
+
+<div class="study-card">
+
+<div class="study-icon">🧠</div>
+
+<h3>Quiz</h3>
+
+<p>
+Test yourself with interactive quizzes.
+</p>
+
+<button onclick="openQuiz()">
+Start Quiz
+</button>
+
+</div>
+
+
+<div class="study-card">
+
+<div class="study-icon">⚡</div>
+
+<h3>One Shot</h3>
+
+<p>
+Complete chapter revision in a short
+and focused format.
+</p>
+
+<button onclick="openResource('One Shot')">
+Start One Shot
+</button>
+
+</div>
+
+
+<div class="study-card">
+
+<div class="study-icon">🔄</div>
+
+<h3>Rapid Revision</h3>
+
+<p>
+Quick revision before tests and
+examinations.
+</p>
+
+<button onclick="openResource('Rapid Revision')">
+Revise Now
+</button>
+
+</div>
+
+
+<div class="study-card">
+
+<div class="study-icon">🎯</div>
+
+<h3>NCERT Practice</h3>
+
+<p>
+Practice important NCERT-based
+questions.
+</p>
+
+<button onclick="openResource('NCERT Practice')">
+Practice
+</button>
+
+</div>
+
+</div>
 
 </section>
+
+
+<!-- =========================
+     SUBJECTS
+========================= -->
+
+<section class="section subject-section" id="subjects">
+
+<div class="section-title">
+
+<h2>📚 Explore Subjects</h2>
+
+<p>
+Choose a subject and continue your learning journey.
+</p>
+
+</div>
+
+<div class="subjects">
+
+<div class="subject" onclick="openSubject('Mathematics')">
+
+<h3>➗ Mathematics</h3>
+
+<p>
+Numbers • Algebra • Geometry • Data
+</p>
+
+</div>
+
+
+<div class="subject" onclick="openSubject('Science')">
+
+<h3>🔬 Science</h3>
+
+<p>
+Physics • Chemistry • Biology
+</p>
+
+</div>
+
+
+<div class="subject" onclick="openSubject('Social Science')">
+
+<h3>🌍 Social Science</h3>
+
+<p>
+History • Geography • Civics
+</p>
+
+</div>
+
+
+<div class="subject" onclick="openSubject('English')">
+
+<h3>📘 English</h3>
+
+<p>
+Grammar • Literature • Writing
+</p>
+
+</div>
+
+
+<div class="subject" onclick="openSubject('Hindi')">
+
+<h3>📕 Hindi</h3>
+
+<p>
+Literature • Grammar • Writing
+</p>
+
+</div>
+
+
+<div class="subject" onclick="openSubject('Computer')">
+
+<h3>💻 Computer</h3>
+
+<p>
+Technology • Coding • Digital Skills
+</p>
+
+</div>
+
+</div>
+
+
+<div class="content-area" id="contentArea">
+
+<div class="content-box">
+
+<h3 id="contentTitle"></h3>
+
+<div id="contentText"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta" id="about">
+
+<h2>✨ Learn. Revise. Improve.</h2>
+
+<p>
+Aditya Learns is designed to make studying more organised,
+enjoyable and student-friendly for Classes 6–9.
+</p>
+
+<a href="#classes" class="btn">
+📚 Start Learning
+</a>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
-    <p>
-        <strong>✨ ADITYA LEARNS</strong>
-    </p>
-    <p style="margin-top:8px;">
-        Smart Learning Platform • Classes 6–9
-    </p>
+
+<h3>✨ ADITYA LEARNS</h3>
+
+<p>
+Smart Learning Platform • Classes 6–9
+</p>
+
+<p>
+© 2026 Aditya Learns
+</p>
+
 </footer>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<div class="close" onclick="closeModal()">×</div>
+
+<h2 id="modalTitle"></h2>
+
+<div id="modalContent"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   CLASS SELECTION
+========================= */
+
+let selectedClass = 6;
+
+function selectClass(classNumber){
+
+    selectedClass = classNumber;
+
+    const contentArea =
+        document.getElementById("contentArea");
+
+    document.getElementById("contentTitle").innerText =
+        "Class " + classNumber + " Learning";
+
+    document.getElementById("contentText").innerHTML = `
+
+        <p>
+        Welcome to the Class ${classNumber} learning area.
+        </p>
+
+        <br>
+
+        <h4>📖 Available Learning</h4>
+
+        <ul>
+            <li>Chapter Notes</li>
+            <li>NCERT Question Answers</li>
+            <li>Interactive Quiz</li>
+            <li>One Shot Revision</li>
+            <li>Rapid Revision</li>
+            <li>NCERT Practice</li>
+        </ul>
+
+        <br>
+
+        <p>
+        Select a subject below to continue.
+        </p>
+
+    `;
+
+    contentArea.style.display = "block";
+
+    contentArea.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+}
+
+
+/* =========================
+   SUBJECT
+========================= */
+
+function openSubject(subject){
+
+    const contentArea =
+        document.getElementById("contentArea");
+
+    document.getElementById("contentTitle").innerText =
+        subject + " — Class " + selectedClass;
+
+    document.getElementById("contentText").innerHTML = `
+
+        <p>
+        You are studying <strong>${subject}</strong>
+        for <strong>Class ${selectedClass}</strong>.
+        </p>
+
+        <br>
+
+        <h4>📚 Learning Options</h4>
+
+        <ul>
+            <li>Chapter Notes</li>
+            <li>Important Concepts</li>
+            <li>Question Answers</li>
+            <li>NCERT Practice</li>
+            <li>Rapid Revision</li>
+            <li>Quiz</li>
+        </ul>
+
+        <br>
+
+        <button class="btn"
+        onclick="openResource('Notes')">
+        📖 Open Notes
+        </button>
+
+    `;
+
+    contentArea.style.display = "block";
+
+    contentArea.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+}
+
+
+/* =========================
+   RESOURCE MODAL
+========================= */
+
+function openResource(resource){
+
+    document.getElementById("modalTitle").innerText =
+        resource;
+
+    document.getElementById("modalContent").innerHTML = `
+
+        <p>
+        <strong>Class ${selectedClass}</strong>
+        learning resource.
+        </p>
+
+        <br>
+
+        <h3>${resource}</h3>
+
+        <p>
+        This section is ready for your
+        ${resource.toLowerCase()} content.
+        </p>
+
+        <br>
+
+        <ul>
+            <li>Important concepts</li>
+            <li>NCERT topics</li>
+            <li>Exam-focused material</li>
+            <li>Easy revision points</li>
+        </ul>
+
+        <br>
+
+        <p>
+        More chapter-wise content can be added
+        here as the website grows.
+        </p>
+
+    `;
+
+    document.getElementById("modal")
+        .classList.add("active");
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function openQuiz(){
+
+    document.getElementById("modalTitle").innerText =
+        "🧠 Class " + selectedClass + " Quiz";
+
+    document.getElementById("modalContent").innerHTML = `
+
+        <div class="quiz-box">
+
+            <div class="question">
+            Which subject would you like to practice?
+            </div>
+
+            <div class="options">
+
+                <div class="option"
+                onclick="quizAnswer(this,true)">
+                Mathematics
+                </div>
+
+                <div class="option"
+                onclick="quizAnswer(this,false)">
+                Science
+                </div>
+
+                <div class="option"
+                onclick="quizAnswer(this,false)">
+                English
+                </div>
+
+                <div class="option"
+                onclick="quizAnswer(this,false)">
+                Social Science
+                </div>
+
+            </div>
+
+            <p id="quizMessage"
+            style="margin-top:20px;font-weight:bold;">
+            </p>
+
+        </div>
+
+    `;
+
+    document.getElementById("modal")
+        .classList.add("active");
+}
+
+
+function quizAnswer(element,correct){
+
+    if(correct){
+
+        element.classList.add("correct");
+
+        document.getElementById("quizMessage")
+        .innerText =
+        "🎉 Correct! Great job.";
+
+    }else{
+
+        element.classList.add("wrong");
+
+        document.getElementById("quizMessage")
+        .innerText =
+        "Try again! Keep learning.";
+
+    }
+
+}
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal(){
+
+    document.getElementById("modal")
+        .classList.remove("active");
+}
+
+
+/* Close modal when clicking outside */
+
+document.getElementById("modal")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+        closeModal();
+    }
+
+});
+
+</script>
 
 </body>
 </html>
